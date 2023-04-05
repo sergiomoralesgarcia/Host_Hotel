@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "235234291657",
+    "project_id": "hosthotel-7b479",
+    "storage_bucket": "hosthotel-7b479.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235234291657:android:7a7513a3573f6c6e514218",
+        "android_client_info": {
+          "package_name": "com.tfg.hosthotel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235234291657-cut72ikqo1orp1aipaa6sc42ahlklphr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tfg.hosthotel",
+            "certificate_hash": "a40027aff031b0297dfc7c92a35ae9b117a4e21d"
+          }
+        },
+        {
+          "client_id": "235234291657-eov9hm34rr34bh13el82119j4kd4rmk7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC958BxK0HLJ8hQm8eC4Pj37ZOgM7vXLoE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235234291657-eov9hm34rr34bh13el82119j4kd4rmk7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
