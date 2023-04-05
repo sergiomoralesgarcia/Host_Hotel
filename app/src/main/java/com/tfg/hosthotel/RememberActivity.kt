@@ -38,7 +38,7 @@ class RememberActivity : AppCompatActivity() {
 
     private fun sendPasswordReset (email : String){
         if (email.isEmpty()) {
-            Toast.makeText(baseContext, "Rellene los campoç", Toast.LENGTH_SHORT).show()
+            Toast.makeText(baseContext, "Rellene los campos", Toast.LENGTH_SHORT).show()
             return
         }
 
