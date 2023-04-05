@@ -1,4 +1,4 @@
-﻿# Host_Hotel
+# Host_Hotel
 
 ## Desarrolladores
 - Alberto Parra Toval, Híbrido.
