@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:text="edit"
         android:textColor="@color/white"
-        android:background="@color/purple_500"
+        android:backgroundTint="@color/boton"
         android:layout_margin="32dp" />
 
     <Button
