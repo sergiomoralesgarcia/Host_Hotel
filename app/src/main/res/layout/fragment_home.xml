@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo"
+    android:orientation="vertical">
+
+    <!-- Encabezado con logo de la aplicación -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/add" />
+
+    </LinearLayout>
+
+    <!-- Botones de acceso rápido -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <ImageButton
+            android:id="@+id/btnReservas"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/add"
+            android:scaleType="centerInside"
+            android:background="@null"/>
+
+        <ImageButton
+            android:id="@+id/btnServicios"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/add"
+            android:scaleType="centerInside"
+            android:background="@null"/>
+
+        <ImageButton
+            android:id="@+id/btnCuenta"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/add"
+            android:scaleType="centerInside"
+            android:background="@null"/>
+
+    </LinearLayout>
+
+    <!-- Descripción de la aplicación -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bienvenido a la aplicación de HostHotel, aquí puedes reservar habitaciones, acceder a servicios del hotel y gestionar tu cuenta."
+        android:padding="16dp"/>
+
+</LinearLayout>

@@ -68,7 +68,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="276dp"
         android:text="Regain Pass"
-
         android:textColor="#A57C00"
         android:textSize="36dp"
         app:layout_constraintEnd_toEndOf="parent"
