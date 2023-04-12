@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "235234291657",
-    "project_id": "hosthotel-7b479",
-    "storage_bucket": "hosthotel-7b479.appspot.com"
+    "project_number": "870619227037",
+    "project_id": "hosthotel-3c0d2",
+    "storage_bucket": "hosthotel-3c0d2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:235234291657:android:7a7513a3573f6c6e514218",
+        "mobilesdk_app_id": "1:870619227037:android:514b9cca5df2dfbd6f8574",
         "android_client_info": {
           "package_name": "com.tfg.hosthotel"
         }
       },
       "oauth_client": [
         {
-          "client_id": "235234291657-cut72ikqo1orp1aipaa6sc42ahlklphr.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.tfg.hosthotel",
-            "certificate_hash": "a40027aff031b0297dfc7c92a35ae9b117a4e21d"
-          }
-        },
-        {
-          "client_id": "235234291657-eov9hm34rr34bh13el82119j4kd4rmk7.apps.googleusercontent.com",
+          "client_id": "870619227037-r17p7i6a5vndfnh0jo4cjd56kble6aj2.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC958BxK0HLJ8hQm8eC4Pj37ZOgM7vXLoE"
+          "current_key": "AIzaSyCy3I6pIXA1H-bZ_h4Su34bsW_Sz8PvkXE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "235234291657-eov9hm34rr34bh13el82119j4kd4rmk7.apps.googleusercontent.com",
+              "client_id": "870619227037-r17p7i6a5vndfnh0jo4cjd56kble6aj2.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

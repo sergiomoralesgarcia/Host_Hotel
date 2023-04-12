@@ -1,5 +1,6 @@
 package com.tfg.hosthotel
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -49,12 +50,23 @@ class ProfileFragment : Fragment() {
     }
 
     private fun signOut() {
-        firebaseAuth.signOut()
-        Toast.makeText(activity?.baseContext, "Sesión cerrada correctamente", Toast.LENGTH_SHORT).show()
-        val intent = Intent(activity, LoginActivity::class.java)
-        startActivity(intent)
-        activity?.finish()
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Cerrar sesión")
+        builder.setMessage("¿Estás seguro de que quieres cerrar sesión?")
+        builder.setPositiveButton("Sí") { dialog, which ->
+            firebaseAuth.signOut()
+            Toast.makeText(activity?.baseContext, "Sesión cerrada correctamente", Toast.LENGTH_SHORT).show()
+            val intent = Intent(activity, LoginActivity::class.java)
+            startActivity(intent)
+            activity?.finish()
+        }
+        builder.setNegativeButton("No") { dialog, which ->
+            // No hacer nada si se selecciona "No"
+        }
+        val dialog = builder.create()
+        dialog.show()
     }
+
 
     companion object {
         @JvmStatic
