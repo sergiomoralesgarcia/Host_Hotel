@@ -12,22 +12,28 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Busca la vista de la navegación inferior en el diseño y la asigna a la propiedad
         bottomNavigationView = findViewById(R.id.bottom_nav)
+
+        // Define un listener de clic para los elementos de la navegación inferior
         bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.menu_home -> {
+                    // Reemplaza el fragmento actual por el HomeFragment
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, HomeFragment())
                         .commit()
                     true
                 }
                 R.id.menu_add -> {
+                    // Reemplaza el fragmento actual por el AddFragment
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, AddFragment())
                         .commit()
                     true
                 }
                 R.id.menu_profile -> {
+                    // Reemplaza el fragmento actual por el ProfileFragment
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, ProfileFragment())
                         .commit()
@@ -37,13 +43,17 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // Establece el elemento seleccionado por defecto
         bottomNavigationView.selectedItemId = R.id.menu_home
 
+        // Agrega el HomeFragment por defecto
         supportFragmentManager.beginTransaction()
             .add(R.id.fragment_container, HomeFragment())
             .commit()
 
     }
+
+    // Anula el método onBackPressed para evitar salir de la actividad al presionar el botón de atrás
     override fun onBackPressed() {
         return
     }
