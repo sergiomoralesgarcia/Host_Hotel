@@ -1,55 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
-    android:background="@color/fondo"
-    android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:background="@color/fondo">
 
-    <ImageView
-        android:id="@+id/profile_image"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/profile"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="32dp"
-        android:contentDescription="algo" />
-
-    <TextView
-        android:id="@+id/name_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/black"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp" />
-
-    <TextView
-        android:id="@+id/email_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Emaill"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/black"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp" />
-
-    <Button
-        android:id="@+id/edit_profile_button"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="edit"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/boton"
-        android:layout_margin="32dp" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_logout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_loguot"
-        android:textColor="@color/white"
-        android:background="@color/purple_500"
-        android:layout_margin="32dp" />
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/profile"
+            android:contentDescription="algo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/name_textview"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintHorizontal_bias="0.5"
+            android:layout_marginTop="32dp" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/profile_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/email_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/name_textview"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/edit_profile_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="edit"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/boton"
+            app:layout_constraintTop_toBottomOf="@+id/email_textview"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.8"
+            android:layout_margin="32dp" />
+
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_loguot"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
+            app:layout_constraintTop_toBottomOf="@+id/edit_profile_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.8"
+            android:layout_margin="32dp" />
+
+        <ImageButton
+            android:id="@+id/btn_show_bottom_sheet"
+            android:layout_width="58dp"
+            android:layout_height="59dp"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:src="@drawable/menu"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.985"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
