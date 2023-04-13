@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "870619227037-r17p7i6a5vndfnh0jo4cjd56kble6aj2.apps.googleusercontent.com",
+          "client_id": "870619227037-vr8ilhba0kjefvl8f1064j5j3rurkgh1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tfg.hosthotel",
+            "certificate_hash": "a40027aff031b0297dfc7c92a35ae9b117a4e21d"
+          }
+        },
+        {
+          "client_id": "870619227037-4mdmt649qjjd75cpvi4pisglsjrcbp19.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,7 +35,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "870619227037-r17p7i6a5vndfnh0jo4cjd56kble6aj2.apps.googleusercontent.com",
+              "client_id": "870619227037-46blj632aohm35nbfvnr1m93bvo2ekcq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
