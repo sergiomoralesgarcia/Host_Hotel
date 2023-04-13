@@ -1,31 +1,42 @@
 <resources>
     <string name="app_name">HostHotel</string>
-    <string name="edt_email">Email</string>
-    <string name="edt_pass">Password</string>
-    <string name="edt_confirmPass">Confirm Password</string>
-    <string name="edt_name">Name</string>
-    <string name="edt_city">City, Street</string>
-    <string name="edt_Url">Url Image</string>
-    <string name="edt_info">Information</string>
-    <string name="txt_question">You don´t have an account? </string>
-    <string name="btn_register">Register </string>
-    <string name="btn_remember">Remember Password </string>
-    <string name="btn_cancel">Cancel </string>
-    <string name="btn_regain">Regain Pass </string>
-    <string name="btn_send">Send Email </string>
-    <string name="btn_add">Add </string>
-    <string name="btn_loguot">Log out </string>
+    <string name="edt_pass">Contraseña</string>
+    <string name="edt_confirmPass">Confirmar Contraseña</string>
+    <string name="edt_name">Nombre</string>
+    <string name="edt_city">Ciudad, Calle</string>
+    <string name="btn_register">Registrarse</string>
+    <string name="btn_remember">Recordar Constraseña</string>
+    <string name="btn_regain">Recuperar Constraseña</string>
+    <string name="btn_send">Enviar Email</string>
+    <string name="btn_add">Añadir</string>
+    <string name="btn_loguot">Cerrar Sesión</string>
+    <string name="btn_google">Entrar con google</string>
+    <string name="btn_signIn">Entrar</string>
+    <string name="btn_save">Guardar</string>
+    <string name="btn_edit">Editar</string>
+    <string name="btn_options">Configuración</string>
+    <string name="btn_saves">Guardados</string>
+    <string name="btn_list">Lista de reseñas</string>
+    <string name="btn_info">Información</string>
 
     <string name="select_language">Selecciona un idioma</string>
     <string-array name="languages">
         <item>Español</item>
         <item>Inglés</item>
-        <item>Francés</item>
-        <item>Alemán</item>
     </string-array>
-
 
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="edt_email" translatable="false">Email</string>
+    <string name="btn_cancel">Cancelar</string>
+    <string name="edt_info">Información</string>
+    <string name="edt_Url">Url de la Imagen</string>
+    <string name="txt_question">¿No tienes cuenta?</string>
+    <string name="txt_notificaciones">Notificaciones</string>
+    <string name="txt_opcionNotifi">Activar notificaciones</string>
+    <string name="txt_activarNotif">Activar</string>
+    <string name="txt_desactivarNotif">Desactivar</string>
+    <string name="txt_idioma">Idioma</string>
+    <string name="txt_addHotel">Añadir Hotel</string>
 </resources>

@@ -118,15 +118,4 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
         return inflater.inflate(R.layout.bottom_sheet_layout, container, false)
     }
 
-    // Función que se llama una vez que el layout ha sido inflado y se ha creado la vista
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        // Se obtiene la referencia del botón cerrar
-        val closeButton: Button = view.findViewById(R.id.btn_save)
-        // Se le asigna una acción al botón cerrar para que cierre el BottomSheetDialogFragment
-        closeButton.setOnClickListener {
-            dismiss()
-        }
-    }
 }
