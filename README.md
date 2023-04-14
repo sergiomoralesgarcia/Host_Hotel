@@ -24,4 +24,4 @@ Creación del proyecto de android con la conexión con firebase. Realizado el lo
 ### Semana 1 (3 abril - 9 Abril)
 Maquetación de la aplicación y hechos los fragmentos de las pantallas principales de la aplicación, además de la barra inferior de selección de pantallas. Implementado logout
 ### Semana 1 (10 abril - 17 abril)
-Inicio de sesión con google implementado. Una vez hayas iniciado sesión, no se cerrará a no ser que hagas logout. Implementación del inglés y implementación de un BottomSheet en el ProfileFragment
+Inicio de sesión con google implementado. Una vez hayas iniciado sesión, no se cerrará a no ser que hagas logout. Implementación del inglés y implementación de un BottomSheet en el ProfileFragment. SplashScreen implementado.
