@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo"
-    tools:context=".RememberActivity"
+    tools:context=".login.RememberActivity"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="102dp">
 

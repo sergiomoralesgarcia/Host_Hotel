@@ -1,4 +1,4 @@
-package com.tfg.hosthotel
+package com.tfg.hosthotel.fragments
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -8,9 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
+import com.tfg.hosthotel.R
+import com.tfg.hosthotel.login.LoginActivity
+import com.tfg.hosthotel.menus.BottomSheetFragment
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

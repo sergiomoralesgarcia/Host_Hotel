@@ -1,4 +1,4 @@
-package com.tfg.hosthotel
+package com.tfg.hosthotel.menus
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageButton
-import android.widget.Toast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.tfg.hosthotel.R
 
 class BottomSheetFragment: BottomSheetDialogFragment() {
 

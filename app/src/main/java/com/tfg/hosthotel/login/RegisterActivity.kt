@@ -1,4 +1,4 @@
-package com.tfg.hosthotel
+package com.tfg.hosthotel.login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.tfg.hosthotel.R
 
 class RegisterActivity : AppCompatActivity() {
     // Declaración de la instancia de FirebaseAuth

@@ -16,49 +16,49 @@
         android:theme="@style/Theme.HostHotel"
         tools:targetApi="31">
         <activity
-            android:name=".InformationActivity"
+            android:name=".menus.InformationActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ListReviewsAvtivity"
+            android:name=".menus.ListReviewsAvtivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SavesActivity"
+            android:name=".menus.SavesActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ConfigActivity"
+            android:name=".menus.ConfigActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".RememberActivity"
+            android:name=".login.RememberActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".RegisterActivity"
+            android:name=".login.RegisterActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".login.LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.App.Starting">
             <intent-filter>
