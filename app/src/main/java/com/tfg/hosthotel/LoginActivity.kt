@@ -3,6 +3,7 @@ package com.tfg.hosthotel
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -10,6 +11,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
@@ -32,6 +34,7 @@ class LoginActivity : AppCompatActivity() {
         val txtpasswd: TextView = findViewById(R.id.edtPassword)
         val btnCrearCuentaNueva: TextView = findViewById(R.id.btnCrear)
         val btnRecordar : TextView = findViewById(R.id.btnOlvidar)
+
 
         // Obtenemos una instancia de FirebaseAuth
         firebaseAuth = Firebase.auth
@@ -66,6 +69,10 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
+
+
+
+
     }
 
     // Función para el inicio de sesión

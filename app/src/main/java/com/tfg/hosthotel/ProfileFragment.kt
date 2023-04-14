@@ -7,10 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.LinearLayout
-import android.widget.Toast
+import android.widget.*
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
@@ -61,16 +58,18 @@ class ProfileFragment : Fragment() {
             signOut()
         }
 
-        // Obtener la referencia del botón de mostrar el BottomSheet
-        val showBottomSheetButton: ImageButton = view.findViewById(R.id.btn_show_bottom_sheet)
-        // Establecer el evento onclick del botón de mostrar el BottomSheet
-        showBottomSheetButton.setOnClickListener {
-            showBottomSheet()
+        val prueba: ImageButton = view.findViewById(R.id.btn_menu)
+
+        // Establecer el evento onClick del TextView
+        prueba.setOnClickListener {
+            val bottomSheetFragment = BottomSheetFragment()
+            bottomSheetFragment.show(parentFragmentManager, "BottomSheetDialog")
         }
 
         // Devolver la vista inflada del fragmento
         return view
     }
+
 
     // Método que realiza la acción de cerrar sesión del usuario
     private fun signOut() {
@@ -94,10 +93,6 @@ class ProfileFragment : Fragment() {
         dialog.show()
         }
 
-    private fun showBottomSheet() {
-        val bottomSheet = BottomSheetFragment()
-        bottomSheet.show(requireFragmentManager(), "BottomSheetDialog")
-    }
 
     companion object {
         @JvmStatic
@@ -111,11 +106,3 @@ class ProfileFragment : Fragment() {
     }
 }
 
-class BottomSheetFragment : BottomSheetDialogFragment() {
-
-    // Función que infla el layout del BottomSheetDialogFragment
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.bottom_sheet_layout, container, false)
-    }
-
-}
