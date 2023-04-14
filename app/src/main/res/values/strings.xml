@@ -21,8 +21,8 @@
 
     <string name="select_language">Selecciona un idioma</string>
     <string-array name="languages">
+        <item>English</item>
         <item>Español</item>
-        <item>Inglés</item>
     </string-array>
 
 
@@ -39,4 +39,6 @@
     <string name="txt_desactivarNotif">Desactivar</string>
     <string name="txt_idioma">Idioma</string>
     <string name="txt_addHotel">Añadir Hotel</string>
+    <string name="language_key">language</string>
+    <string name="language_saved_message">Language saved!</string>
 </resources>

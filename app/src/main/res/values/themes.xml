@@ -27,4 +27,13 @@
         <item name="android:background">@drawable/rounded_corners</item>
     </style>
 
+    <!-- Splash Style -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/screen</item>
+        <item name="windowSplashScreenBackground">@color/fondo</item>
+        <item name="windowSplashScreenAnimationDuration">300</item>
+        <item name="postSplashScreenTheme">@style/Theme.HostHotel</item>
+    </style>
+
+
 </resources>

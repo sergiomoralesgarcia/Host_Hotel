@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
@@ -24,8 +25,11 @@ class LoginActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val screenSplash = installSplashScreen()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        screenSplash.setKeepOnScreenCondition{false}
 
         // Referencia a los elementos de la vista
         val btningresar: Button = findViewById(R.id.btnIngresar)
@@ -69,10 +73,6 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
-
-
-
-
     }
 
     // Función para el inicio de sesión
