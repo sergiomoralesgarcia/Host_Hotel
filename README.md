@@ -9,6 +9,7 @@ Trabajo de Fin de Curso Desarrollo de Aplicaciones Multiplataforma, Año 2022/20
 La app va a consistir en una gestión de hoteles donde lo hemos enfocado en 2 diferentes métodos, la vista del administrador y la vista del cliente. La primera podrá editar, borrar y añadir los diferentes hoteles que existan y y por parte de la vista del cliente podrá añadir comentarios/reseñas a partir de los hoteles disponibles.
 
 ## Tecnologías utilizadas
+- Diseño de las basses de datos: My SQL Workbench
 - Aplicación móvil: Android Studio, Kotlin, Material Design...
 - Aplicación híbrida: Visual Studio Code, Angular, Ionic, Bootstrap...
 - Tecnologías conjuntas: Firebase (Firestore & Authentication).
@@ -19,4 +20,8 @@ Enlace a nuestra page de Figma (https://www.figma.com/file/iqHdZ8hMSmV776VCocHda
 
 ## Desarrollo por Semanas
 ### Semana 1 (27 Marzo - 2 Abril)
-Creación del proyecto en Ionic con la conexión a Firebase y creado la funcionalidad de Login, aún sin el recuperar contraseña implementado. Además realización del readme de github así como comenzar la base de datos de la App.
+Creación del proyecto de android con la conexión con firebase. Realizado el login, el register y el recuperar contraseña.
+### Semana 1 (3 abril - 9 Abril)
+Maquetación de la aplicación y hechos los fragmentos de las pantallas principales de la aplicación, además de la barra inferior de selección de pantallas. Implementado logout
+### Semana 1 (10 abril - 17 abril)
+Inicio de sesión con google implementado. Una vez hallas iniciado sesión, no se cerrará a no ser que hagas logout. Implementación del inglés y implementación de un BottomSheet en el ProfileFragment
