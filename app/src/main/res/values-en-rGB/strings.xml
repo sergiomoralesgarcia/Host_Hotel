@@ -39,4 +39,11 @@
     <string name="txt_addHotel">Add Hotel</string>
     <string name="language_key">language</string>
     <string name="language_saved_message">Language saved!</string>
+    <string name="ttl_about">About Us</string>
+    <string name="ttl_aplication">What is it about?</string>
+    <string name="ttl_dev">Developer</string>
+    <string name="txt_follow">Follow Us</string>
+    <string name="txt_aboutUs">This application has been developed for the final project of the 2nd year course on Multiplatform Application Development, of the C.P.I.F.P. Malaga Tech Park</string>
+    <string name="txt_aboutAplication">This project is based on a hotel forum in which users can add hotels they have been to and rate them with stars and a review. The hotels belong to the community of Andalusia and can be filtered by the cities that are within it.</string>
+
 </resources>

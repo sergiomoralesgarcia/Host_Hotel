@@ -39,6 +39,13 @@
     <string name="txt_desactivarNotif">Desactivar</string>
     <string name="txt_idioma">Idioma</string>
     <string name="txt_addHotel">Añadir Hotel</string>
-    <string name="language_key">language</string>
-    <string name="language_saved_message">Language saved!</string>
+    <string name="language_key">Idioma</string>
+    <string name="language_saved_message">Idioma Guardado</string>
+    <string name="ttl_about">Sobre nosotros</string>
+    <string name="ttl_aplication">¿De qué trata?</string>
+    <string name="ttl_dev">Desarrollador</string>
+    <string name="Developer" translatable="false">Sergio Morales García</string>
+    <string name="txt_follow">Síguenos</string>
+    <string name="txt_aboutUs">Esta aplicación se ha desarrollado para el trabajo de final de grado del curso de 2º de Desarrollo de Aplicaciones Multiplataforma, del C.P.I.F.P. Málaga Tech Park.</string>
+    <string name="txt_aboutAplication">Este proyecto se basa en un foro de hoteles en el que los usuarios pueden añadir hoteles en los que han estado y puntuarlos con estrellas y con una reseña. Los hoteles pertenecen a la comunidad de Andalucía y pueden ser filtrados por las ciudades que se encuentran dentro de la misma.</string>
 </resources>
