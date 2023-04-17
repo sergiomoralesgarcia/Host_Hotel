@@ -4,6 +4,119 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".menus.InformationActivity">
+    android:background="@color/fondo"
+    tools:layout_editor_absoluteX="129dp"
+    tools:layout_editor_absoluteY="116dp">
+
+    <!-- Barra de acción -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Acerca de nosotros"
+        app:titleTextColor="@android:color/white" />
+
+
+    <ImageButton
+        android:id="@+id/btn_github"
+        android:layout_width="91dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="584dp"
+        android:background="@drawable/transparente"
+        android:clickable="true"
+        android:src="@drawable/transparente"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <ImageView
+        android:layout_width="91dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="584dp"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/github" />
+
+    <ImageButton
+        android:id="@+id/btn_instagram"
+        android:layout_width="91dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="584dp"
+        android:background="@drawable/transparente"
+        android:clickable="true"
+        android:src="@drawable/transparente"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.618"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <ImageView
+        android:id="@+id/btn_close"
+        android:layout_width="91dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="584dp"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.618"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/instagram" />
+
+    <ImageButton
+        android:id="@+id/btn_twitter"
+        android:layout_width="91dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="584dp"
+        android:background="@drawable/transparente"
+        android:clickable="true"
+        android:src="@drawable/transparente"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.334"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <ImageView
+        android:layout_width="91dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="584dp"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.334"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/twitter" />
+
+
+    <ImageView
+        android:layout_width="91dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="584dp"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.903"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/facebook" />
+
+    <ImageButton
+        android:id="@+id/btn_facebook"
+        android:layout_width="91dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="584dp"
+        android:background="@drawable/transparente"
+        android:clickable="true"
+        android:src="@drawable/transparente"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.903"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

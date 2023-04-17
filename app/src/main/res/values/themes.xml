@@ -15,9 +15,6 @@
 
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
-    <style name="RoundedCorners">
-        <item name="android:background">@drawable/rounded_corners</item>
-    </style>
 
     <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppModelStyle</item>
@@ -34,6 +31,5 @@
         <item name="windowSplashScreenAnimationDuration">300</item>
         <item name="postSplashScreenTheme">@style/Theme.HostHotel</item>
     </style>
-
 
 </resources>
