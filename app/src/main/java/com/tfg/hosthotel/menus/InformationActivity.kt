@@ -34,8 +34,8 @@ class InformationActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val btnFacebbok = findViewById<ImageButton>(R.id.btn_facebook)
-        btnFacebbok.setOnClickListener {
+        val btnFacebook = findViewById<ImageButton>(R.id.btn_facebook)
+        btnFacebook.setOnClickListener {
             val uri = Uri.parse("https://www.facebook.com/?stype=lo&jlou=AfdHo09a0HhQFInr1P9AlN8e8ReXVA_KHazMaF67PvWXHpFr5cn3InpIDpGpUcSJSqS-kmHu0SPAjifRbamOQipKE8_247jduuQASKF95XVArA&smuh=45099&lh=Ac8bVgCUpcm3apKr7ws")
             val intent = Intent(Intent.ACTION_VIEW, uri)
             startActivity(intent)

@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="421dp"
-        android:layout_height="306dp"
+        android:layout_width="391dp"
+        android:layout_height="191dp"
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
@@ -18,12 +18,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/hotel" />
 
-
     <EditText
         android:id="@+id/edtEmailNuevo"
         android:layout_width="220dp"
         android:layout_height="40dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:background="@color/backText"
         android:ems="10"
         android:hint="@string/edt_email"
@@ -34,26 +33,47 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/edtApellidos" />
 
-    <Button
-        android:id="@+id/btnCrearCuentaNueva"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/boton"
-        android:text="@string/btn_register"
+    <EditText
+        android:id="@+id/edtImagenPerfil"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/backText"
+        android:ems="10"
+        android:hint="Imagen"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
         android:textColor="@color/black"
+        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPasswordNuevo2" />
+        app:layout_constraintTop_toBottomOf="@+id/edtEmailNuevo" />
+
+    <EditText
+        android:id="@+id/edtPasswordNuevo2"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/backText"
+        android:ems="10"
+        android:hint="@string/edt_confirmPass"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPasswordNuevo1" />
 
     <EditText
         android:id="@+id/edtPasswordNuevo1"
         android:layout_width="220dp"
         android:layout_height="40dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:background="@color/backText"
         android:ems="10"
         android:hint="@string/edt_pass"
@@ -64,13 +84,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmailNuevo" />
+        app:layout_constraintTop_toBottomOf="@+id/edtImagenPerfil" />
+
+    <Button
+        android:id="@+id/btn_cancelar"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:backgroundTint="#A57C00"
+        android:text="@string/btn_cancel"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPasswordNuevo2" />
+
+    <Button
+        android:id="@+id/btnCrearCuentaNueva"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/boton"
+        android:text="@string/btn_register"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPasswordNuevo2" />
 
     <EditText
         android:id="@+id/edtNombre"
         android:layout_width="220dp"
         android:layout_height="40dp"
-        android:layout_marginTop="316dp"
+        android:layout_marginTop="212dp"
         android:background="@color/backText"
         android:ems="10"
         android:hint="@string/edt_name"
@@ -83,34 +129,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_cancelar"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:backgroundTint="#A57C00"
-        android:text="@string/btn_cancel"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPasswordNuevo2" />
-
     <EditText
-        android:id="@+id/edtPasswordNuevo2"
+        android:id="@+id/edtApellidos"
         android:layout_width="220dp"
         android:layout_height="40dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:background="@color/backText"
         android:ems="10"
-        android:hint="@string/edt_confirmPass"
-        android:inputType="textPassword"
+        android:hint="Apellidos"
+        android:inputType="textPersonName"
         android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPasswordNuevo1" />
+        app:layout_constraintTop_toBottomOf="@+id/edtNombre" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
