@@ -31,8 +31,18 @@ class ConfigActivity : AppCompatActivity() {
             } else {
                 editor.putInt("Theme", 1)
             }
+
+            val languageSpinner = findViewById<Spinner>(R.id.spinner_language)
+            val languageCode = when (languageSpinner.selectedItemPosition) {
+                0 -> "en"
+                1 -> "es"
+                else -> "en"
+            }
+            editor.putString("Language", languageCode)
+
             editor.apply()
             setDayNight()
+            setLocale(languageCode)
 
             Toast.makeText(this, "Cambios aplicados", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, MainActivity::class.java)
@@ -87,3 +97,4 @@ class ConfigActivity : AppCompatActivity() {
         baseContext.resources.updateConfiguration(config, baseContext.resources.displayMetrics)
     }
 }
+
