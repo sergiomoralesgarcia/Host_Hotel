@@ -30,21 +30,29 @@ class BottomSheetFragment: BottomSheetDialogFragment() {
         btn_config.setOnClickListener {
             val intent = Intent(context, ConfigActivity::class.java)
             startActivity(intent)
+            // Cerrar el BottomSheet
+            dismiss()
         }
 
         btn_fav.setOnClickListener {
             val intent = Intent(context, SavesActivity::class.java)
             startActivity(intent)
+            // Cerrar el BottomSheet
+            dismiss()
         }
 
         btn_list.setOnClickListener {
             val intent = Intent(context, ListReviewsAvtivity::class.java)
             startActivity(intent)
+            // Cerrar el BottomSheet
+            dismiss()
         }
 
         btn_info.setOnClickListener {
             val intent = Intent(context, InformationActivity::class.java)
             startActivity(intent)
+            // Cerrar el BottomSheet
+            dismiss()
         }
 
     }

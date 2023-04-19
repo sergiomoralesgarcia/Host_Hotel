@@ -37,11 +37,11 @@
     <string name="edt_info">Información</string>
     <string name="edt_Url">Url de la Imagen</string>
     <string name="txt_question">¿No tienes cuenta?</string>
-    <string name="txt_notificaciones">Notificaciones</string>
-    <string name="txt_opcionNotifi">Activar notificaciones</string>
     <string name="txt_opcionTheme">Cambiar tema</string>
     <string name="txt_claro">Claro</string>
     <string name="txt_oscuro">Oscuro</string>
+    <string name="txt_notificaciones">Notificaciones</string>
+    <string name="txt_opcionNotifi">Activar notificaciones</string>
     <string name="txt_activarNotif">Activar</string>
     <string name="txt_desactivarNotif">Desactivar</string>
     <string name="txt_idioma">Idioma</string>

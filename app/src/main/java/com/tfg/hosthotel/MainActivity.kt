@@ -1,11 +1,15 @@
 package com.tfg.hosthotel
 
+import android.content.Context
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.tfg.hosthotel.fragments.AddFragment
 import com.tfg.hosthotel.fragments.HomeFragment
 import com.tfg.hosthotel.fragments.ProfileFragment
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -53,12 +57,10 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .add(R.id.fragment_container, HomeFragment())
             .commit()
-
     }
 
     // Anula el método onBackPressed para evitar salir de la actividad al presionar el botón de atrás
     override fun onBackPressed() {
         return
     }
-
 }
