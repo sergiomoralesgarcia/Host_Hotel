@@ -14,11 +14,12 @@ import com.tfg.hosthotel.R
 import java.util.*
 
 class ConfigActivity : AppCompatActivity() {
+    private var selectedLanguage: String = "en" // idioma por defecto: inglés
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_config)
-        setLocale("en") // idioma por defecto: inglés
+        setLocale(selectedLanguage)
 
         val saveButton = findViewById<Button>(R.id.btn_save)
         saveButton.setOnClickListener {
@@ -31,18 +32,9 @@ class ConfigActivity : AppCompatActivity() {
             } else {
                 editor.putInt("Theme", 1)
             }
-
-            val languageSpinner = findViewById<Spinner>(R.id.spinner_language)
-            val languageCode = when (languageSpinner.selectedItemPosition) {
-                0 -> "en"
-                1 -> "es"
-                else -> "en"
-            }
-            editor.putString("Language", languageCode)
-
             editor.apply()
             setDayNight()
-            setLocale(languageCode)
+            setLocale(selectedLanguage) // aplica el idioma seleccionado
 
             Toast.makeText(this, "Cambios aplicados", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, MainActivity::class.java)
@@ -54,13 +46,11 @@ class ConfigActivity : AppCompatActivity() {
         languageSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 if (view != null) {
-                    val languageCode = when (position) {
+                    selectedLanguage = when (position) {
                         0 -> "en" // inglés
                         1 -> "es" // español
                         else -> "en" // idioma por defecto
                     }
-                    setLocale(languageCode)
-                    recreate() // reinicia la actividad para aplicar el nuevo idioma
                 }
             }
 
