@@ -21,7 +21,11 @@ Enlace a nuestra page de Figma (https://www.figma.com/file/iqHdZ8hMSmV776VCocHda
 ## Desarrollo por Semanas
 ### Semana 1 (27 Marzo - 2 Abril)
 Creación del proyecto de android con la conexión con firebase. Realizado el login, el register y el recuperar contraseña.
-### Semana 1 (3 abril - 9 Abril)
+### Semana 2 (3 abril - 9 Abril)
 Maquetación de la aplicación y hechos los fragmentos de las pantallas principales de la aplicación, además de la barra inferior de selección de pantallas. Implementado logout
-### Semana 1 (10 abril - 17 abril)
+### Semana 3 (10 abril - 16 abril)
 Inicio de sesión con google implementado. Una vez hayas iniciado sesión, no se cerrará a no ser que hagas logout. Inglés, BottomSheet en el ProfileFragment y SplashScreen implementados.
+### Semana 4 (17 abril - 23 abril)
+Mejora del bottomSheet y implementación de paginas dentro del mismo. Diseño beta del About Us.
+### Semana 5 (24 abril - 30 abril)
+Página de configuración con cambio de idioma (español e inglés) y de tema de la aplicación.
