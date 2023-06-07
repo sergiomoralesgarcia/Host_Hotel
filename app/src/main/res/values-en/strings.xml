@@ -3,7 +3,8 @@
     <string name="edt_pass">Password</string>
     <string name="edt_confirmPass">Confirm Password</string>
     <string name="edt_name">Name</string>
-    <string name="edt_city">City, Street</string>
+    <string name="edt_city">City</string>
+    <string name="edt_street">Street</string>
     <string name="edt_Url">Url Image</string>
     <string name="edt_info">Information</string>
     <string name="txt_question">You don´t have an account?</string>
@@ -13,6 +14,7 @@
     <string name="btn_regain">Regain Pass</string>
     <string name="btn_send">Send Email</string>
     <string name="btn_add">"Add</string>
+    <string name="btn_editHotel">Edit</string>
     <string name="btn_loguot">"Log out</string>
     <string name="btn_save">"Save</string>
     <string name="btn_options">Configuration</string>

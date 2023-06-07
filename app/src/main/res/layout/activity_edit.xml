@@ -4,6 +4,119 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditActivity">
+    android:background="@color/fondo"
+    tools:context=".login.RegisterActivity">
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
+        android:text="Edit Hotel"
+        android:textColor="#A57C00"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtNombre"
+        android:layout_width="240dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="220dp"
+        android:background="@color/backText"
+        android:ems="10"
+        android:hint="@string/edt_name"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtCiudad"
+        android:layout_width="240dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/backText"
+        android:ems="10"
+        android:hint="@string/edt_city"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtNombre" />
+
+    <EditText
+        android:id="@+id/edtCalle"
+        android:layout_width="240dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/backText"
+        android:ems="10"
+        android:hint="@string/edt_street"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtCiudad" />
+
+    <EditText
+        android:id="@+id/edtUrl"
+        android:layout_width="240dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/backText"
+        android:ems="10"
+        android:hint="@string/edt_Url"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtCalle" />
+
+    <EditText
+        android:id="@+id/edtInfo"
+        android:layout_width="240dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/backText"
+        android:ems="10"
+        android:hint="@string/edt_info"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtUrl" />
+
+    <Button
+        android:id="@+id/btnCrearCuentaNueva"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:backgroundTint="@color/boton"
+        android:text="@string/btn_editHotel"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPasswordNuevo2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

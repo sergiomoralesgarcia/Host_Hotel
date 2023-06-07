@@ -3,12 +3,14 @@
     <string name="edt_pass">Contraseña</string>
     <string name="edt_confirmPass">Confirmar Contraseña</string>
     <string name="edt_name">Nombre</string>
-    <string name="edt_city">Ciudad, Calle</string>
+    <string name="edt_city">Ciudad</string>
+    <string name="edt_street">Calle</string>
     <string name="btn_register">Registrarse</string>
     <string name="btn_remember">Recordar Constraseña</string>
     <string name="btn_regain">Recuperar Constraseña</string>
     <string name="btn_send">Enviar Email</string>
     <string name="btn_add">Añadir</string>
+    <string name="btn_editHotel">Editar</string>
     <string name="btn_loguot">Cerrar Sesión</string>
     <string name="btn_google">Entrar con google</string>
     <string name="btn_signIn">Entrar</string>
