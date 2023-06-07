@@ -7,12 +7,15 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.tfg.hosthotel.R
+import java.util.jar.Attributes.Name
 
 class RegisterActivity : AppCompatActivity() {
     // Declaración de la instancia de FirebaseAuth
     private lateinit var firebaseAuth: FirebaseAuth
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,27 +24,37 @@ class RegisterActivity : AppCompatActivity() {
 
         // Declaración de los elementos del layout como variables y asignación de su valor correspondiente
         val txtnombre_nuevo: TextView = findViewById(R.id.edtNombre)
+        val txtapellido_nuevo: TextView = findViewById(R.id.edtApellidos)
         val txtemail_nuevo: TextView = findViewById(R.id.edtEmailNuevo)
+        val txturl_nuevo: TextView = findViewById(R.id.edtImagenPerfil)
         val txtpassword1: TextView = findViewById(R.id.edtPasswordNuevo1)
         val txtpassword2: TextView = findViewById(R.id.edtPasswordNuevo2)
         val btnCrear: Button = findViewById(R.id.btnCrearCuentaNueva)
         val btnCancelar: Button = findViewById(R.id.btn_cancelar)
 
         // Función asociada al botón "Crear cuenta" que llama a la función createAccount con los parámetros email y password
-        btnCrear.setOnClickListener{
-            var pass1 = txtpassword1.text.toString()
-            var pass2 = txtpassword2.text.toString()
+        btnCrear.setOnClickListener {
+            val pass1 = txtpassword1.text.toString()
+            val pass2 = txtpassword2.text.toString()
 
             // Comprobación de que las dos contraseñas introducidas son iguales, en caso afirmativo se llama a la función createAccount
-            if (pass1.equals(pass2)){
+            if (pass1 == pass2) {
                 createAccount(txtemail_nuevo.text.toString(), txtpassword1.text.toString())
-            }
-            // En caso contrario se muestra un mensaje de error y se asigna el foco al campo de la primera contraseña
-            else{
+
+                val user = hashMapOf(
+                    "first_name" to txtnombre_nuevo.text.toString(),
+                    "last_name" to txtapellido_nuevo.text.toString(),
+                    "email" to txtemail_nuevo.text.toString(),
+                    "url" to txturl_nuevo.text.toString()
+                )
+
+                db.collection("users").document().set(user)
+            } else {
                 Toast.makeText(baseContext, "Error en las contraseñas", Toast.LENGTH_LONG).show()
                 txtpassword1.requestFocus()
             }
         }
+
 
         // Función asociada al botón "Cancelar" que llama a la función onBackPressed()
         btnCancelar.setOnClickListener {
