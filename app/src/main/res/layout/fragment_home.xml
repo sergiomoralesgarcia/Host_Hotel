@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -6,15 +5,105 @@
     android:layout_width="match_parent"
     android:background="@color/fondo"
     android:layout_height="match_parent">
-    
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/layoutProvinces"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnCadiz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cádiz"
+                android:layout_margin="5dp"
+                android:onClick="onProvinceButtonClick"
+                android:background="@drawable/button_selector" />
+
+            <Button
+                android:id="@+id/btnCordoba"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Córdoba"
+                android:layout_margin="5dp"
+                android:onClick="onProvinceButtonClick"
+                android:background="@drawable/button_selector" />
+
+            <Button
+                android:id="@+id/btnGranada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Granada"
+                android:layout_margin="5dp"
+                android:onClick="onProvinceButtonClick"
+                android:background="@drawable/button_selector" />
+
+            <Button
+                android:id="@+id/btnMalaga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Málaga"
+                android:layout_margin="5dp"
+                android:onClick="onProvinceButtonClick"
+                android:background="@drawable/button_selector" />
+
+            <Button
+                android:id="@+id/btnSevilla"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sevilla"
+                android:layout_margin="5dp"
+                android:onClick="onProvinceButtonClick"
+                android:background="@drawable/button_selector" />
+
+            <Button
+                android:id="@+id/btnAlmeria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Almería"
+                android:layout_margin="5dp"
+                android:onClick="onProvinceButtonClick"
+                android:background="@drawable/button_selector" />
+
+            <Button
+                android:id="@+id/btnJaen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jaén"
+                android:layout_margin="5dp"
+                android:onClick="onProvinceButtonClick"
+                android:background="@drawable/button_selector" />
+
+            <Button
+                android:id="@+id/btnHuelva"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Huelva"
+                android:layout_margin="5dp"
+                android:onClick="onProvinceButtonClick"
+                android:background="@drawable/button_selector" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/hotelList"
         android:layout_width="409dp"
         android:layout_height="733dp"
-        android:layout_marginTop="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/horizontalScrollView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         tools:listitem="@layout/item_hotel" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
