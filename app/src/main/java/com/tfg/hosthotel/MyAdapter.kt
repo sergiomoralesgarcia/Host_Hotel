@@ -1,3 +1,4 @@
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -5,10 +6,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import com.tfg.hosthotel.DetailActivity
 import com.tfg.hosthotel.Hotel
 import com.tfg.hosthotel.R
 
-class MyAdapter(private val hotelList: ArrayList<Hotel>) :
+class MyAdapter(private val hotelList: ArrayList<Hotel>, private val itemClickListener: OnItemClickListener) :
     RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -25,10 +27,18 @@ class MyAdapter(private val hotelList: ArrayList<Hotel>) :
         holder.name.text = currentItem.name_hotel
         holder.city.text = currentItem.localtion_hotel
         Picasso.get().load(currentItem.url_img).into(holder.imageView)
+
+        holder.itemView.setOnClickListener {
+            itemClickListener.onItemClick(currentItem)
+        }
     }
 
     override fun getItemCount(): Int {
         return hotelList.size
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(hotel: Hotel)
     }
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

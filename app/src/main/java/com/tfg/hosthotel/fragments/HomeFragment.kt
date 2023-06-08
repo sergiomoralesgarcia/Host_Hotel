@@ -1,4 +1,5 @@
 import MyAdapter
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
+import com.tfg.hosthotel.DetailActivity
 import com.tfg.hosthotel.Hotel
 import com.tfg.hosthotel.R
 
@@ -66,7 +68,12 @@ class HomeFragment : Fragment() {
                 hotelArrayList.add(hotel!!)
             }
 
-            hotelRecyclerView.adapter = MyAdapter(hotelArrayList)
+            val adapter = MyAdapter(hotelArrayList, object : MyAdapter.OnItemClickListener {
+                override fun onItemClick(hotel: Hotel) {
+                    openHotelDetail(hotel)
+                }
+            })
+            hotelRecyclerView.adapter = adapter
         }.addOnFailureListener { exception ->
             // Handle failure
         }
@@ -96,12 +103,31 @@ class HomeFragment : Fragment() {
 
     private fun filterHotelsByCity(city: String) {
         val filteredList = hotelArrayList.filter { hotel -> hotel.localtion_hotel == city }
-        val adapter = MyAdapter(filteredList as ArrayList<Hotel>)
+        val adapter = MyAdapter(filteredList as ArrayList<Hotel>, object : MyAdapter.OnItemClickListener {
+            override fun onItemClick(hotel: Hotel) {
+                openHotelDetail(hotel)
+            }
+        })
         hotelRecyclerView.adapter = adapter
     }
 
     private fun updateHotelList() {
-        val adapter = MyAdapter(hotelArrayList)
+        val adapter = MyAdapter(hotelArrayList, object : MyAdapter.OnItemClickListener {
+            override fun onItemClick(hotel: Hotel) {
+                openHotelDetail(hotel)
+            }
+        })
         hotelRecyclerView.adapter = adapter
     }
+
+    private fun openHotelDetail(hotel: Hotel) {
+        val intent = Intent(requireContext(), DetailActivity::class.java)
+        intent.putExtra("hotelImage", hotel.url_img)
+        intent.putExtra("hotelName", hotel.name_hotel)
+        intent.putExtra("hotelCity", hotel.localtion_hotel)
+        intent.putExtra("hotelStreet", hotel.street_hotel)
+        intent.putExtra("hotelInfo", hotel.info_hotel)
+        startActivity(intent)
+    }
+
 }
