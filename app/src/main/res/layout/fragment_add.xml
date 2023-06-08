@@ -7,9 +7,8 @@
     android:background="@color/fondo"
     tools:context=".login.RegisterActivity">
 
-
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txtAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
@@ -21,14 +20,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/edtNombre"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edtUrl"
         android:layout_width="240dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:background="@color/backText"
         android:ems="10"
-        android:hint="@string/edt_name"
+        android:hint="@string/edt_street"
         android:inputType="textPersonName"
         android:padding="10dp"
         android:textColor="@color/black"
@@ -36,30 +35,66 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/edtStreet" />
 
-    <Button
-        android:id="@+id/btnCrearCuentaNueva"
-        android:layout_width="200dp"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edtNombre"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:backgroundTint="@color/boton"
-        android:text="@string/btn_add"
+        android:layout_marginTop="20dp"
+        android:background="@color/backText"
+        android:ems="10"
+        android:hint="@string/edt_Url"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
         android:textColor="@color/black"
+        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPasswordNuevo2" />
+        app:layout_constraintTop_toBottomOf="@id/edtUrl" />
 
-    <EditText
-        android:id="@+id/edtEmailNuevo"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edtCiudad"
         android:layout_width="240dp"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@color/backText"
+        android:ems="10"
+        android:hint="@string/edt_name"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAdd" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edtStreet"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@color/backText"
         android:ems="10"
         android:hint="@string/edt_city"
-        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtCiudad" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edtInfo"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/backText"
+        android:ems="10"
+        android:hint="@string/edt_info"
         android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
@@ -68,38 +103,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtNombre" />
 
-    <EditText
-        android:id="@+id/edtPasswordNuevo1"
-        android:layout_width="240dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/backText"
-        android:ems="10"
-        android:hint="@string/edt_Url"
-        android:inputType="textPassword"
-        android:padding="10dp"
+    <Button
+        android:id="@+id/btnAddHotel"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/boton"
+        android:text="@string/btn_add"
         android:textColor="@color/black"
-        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmailNuevo" />
-
-    <EditText
-        android:id="@+id/edtPasswordNuevo2"
-        android:layout_width="240dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/backText"
-        android:ems="10"
-        android:hint="@string/edt_info"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPasswordNuevo1" />
+        app:layout_constraintTop_toBottomOf="@+id/edtInfo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
