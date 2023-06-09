@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txtEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
@@ -107,7 +107,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edtUrl" />
 
     <Button
-        android:id="@+id/btnCrearCuentaNueva"
+        android:id="@+id/btnEditar"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
@@ -117,6 +117,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPasswordNuevo2" />
+        app:layout_constraintTop_toBottomOf="@+id/edtInfo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
