@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.fragment.app.FragmentManager
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.firestore.FirebaseFirestore
 import com.tfg.hosthotel.Hotel
@@ -60,6 +61,12 @@ class AddFragment : Fragment() {
                         edtStreet.text = null
                         edtUrl.text = null
                         edtInfo.text = null
+
+                        // Redirige automáticamente al fragmento HomeFragment después de añadir un hotel correctamente
+                        val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+                        fragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, HomeFragment())
+                            .commit()
                     }
                     .addOnFailureListener { e ->
                         Toast.makeText(requireContext(), "Error al añadir el hotel", Toast.LENGTH_SHORT).show()
