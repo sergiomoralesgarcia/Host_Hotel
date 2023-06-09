@@ -11,12 +11,12 @@
     android:paddingRight="20dp"
     android:paddingTop="20dp">
 
-    <ImageView
+    <FrameLayout
         android:id="@+id/hotelImage"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:src="@drawable/malaga"
-        android:background="#9CC09B30"
+        android:background="#C8C8C9"
         android:scaleType="centerCrop"/>
 
     <LinearLayout
@@ -25,12 +25,14 @@
         android:orientation="horizontal"
         android:background="#D9D9D9">
 
-        <TextView
+        <FrameLayout
             android:id="@+id/txt_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hotel Bellaco,"
+            android:layout_width="150dp"
+            android:layout_height="28dp"
             android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#C8C8C9"
             android:gravity="center_horizontal"
             android:textColor="@color/black"
             android:textSize="23sp" />
@@ -39,20 +41,21 @@
             android:id="@+id/txt_ciudad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Málaga"
             android:layout_weight="4"
             android:gravity="left"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:background="#C8C8C9"
             android:textColor="@color/black"
             android:textSize="23sp" />
 
-        <ImageButton
+        <FrameLayout
             android:id="@+id/btn_edit"
             android:layout_width="50dp"
             android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:background="#C8C8C9"
             android:layout_height="50dp"
             android:src="@drawable/ic_edit" />
     </LinearLayout>
-
-
-
 </LinearLayout>

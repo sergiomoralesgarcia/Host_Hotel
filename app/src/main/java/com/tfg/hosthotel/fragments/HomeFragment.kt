@@ -1,12 +1,16 @@
 import MyAdapter
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
@@ -20,6 +24,9 @@ class HomeFragment : Fragment() {
     private lateinit var hotelRecyclerView: RecyclerView
     private lateinit var hotelArrayList: ArrayList<Hotel>
 
+    lateinit var llContenedor: LinearLayout
+    lateinit var llCargando: LinearLayout
+
     private var selectedCity: String? = null
     private lateinit var buttons: List<Button>
 
@@ -31,7 +38,6 @@ class HomeFragment : Fragment() {
         hotelRecyclerView.setHasFixedSize(true)
 
         hotelArrayList = arrayListOf<Hotel>()
-        getHotelData()
 
         val btnCadiz = view.findViewById<Button>(R.id.btnCadiz)
         val btnCordoba = view.findViewById<Button>(R.id.btnCordoba)
@@ -55,8 +61,15 @@ class HomeFragment : Fragment() {
 
         // Agrega más botones y acciones para las demás provincias de Andalucía
 
+        // Valores de la animación de carga
+        llContenedor = view.findViewById(R.id.llContenedor)
+        llCargando = view.findViewById(R.id.llCargando)
+
+        getHotelData()
+
         return view
     }
+
 
     private fun getHotelData() {
         db = FirebaseFirestore.getInstance()
@@ -74,9 +87,17 @@ class HomeFragment : Fragment() {
                 }
             })
             hotelRecyclerView.adapter = adapter
+
+            // Una vez que hayas procesado los datos, llama a la función showData()
+            showData()
         }.addOnFailureListener { exception ->
             // Handle failure
         }
+    }
+
+    private fun showData() {
+        llCargando.isVisible = false
+        llContenedor.isVisible = true
     }
 
     private fun toggleCitySelection(city: String, button: Button) {
