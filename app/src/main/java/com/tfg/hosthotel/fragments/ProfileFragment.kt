@@ -3,11 +3,14 @@ package com.tfg.hosthotel.fragments
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.tfg.hosthotel.R
@@ -21,9 +24,6 @@ class ProfileFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            // ...
-        }
         firebaseAuth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
     }
@@ -49,7 +49,7 @@ class ProfileFragment : Fragment() {
         }
 
         val currentUser = firebaseAuth.currentUser
-        if (currentUser != null) {
+        if (isAdded && currentUser != null) { // Verificar si el fragmento está adjunto
             val email = currentUser.email
             emailTextView.text = email
 
@@ -57,7 +57,7 @@ class ProfileFragment : Fragment() {
             val userRef = firestore.collection("users").document(userId)
             userRef.get()
                 .addOnSuccessListener { document ->
-                    if (document != null && document.exists()) {
+                    if (isAdded && document != null && document.exists()) { // Verificar si el fragmento está adjunto
                         val firstName = document.getString("email")
                         if (firstName != null && firstName.isNotEmpty()) {
                             nameTextView.text = firstName
@@ -69,10 +69,11 @@ class ProfileFragment : Fragment() {
                     }
                 }
                 .addOnFailureListener { exception ->
-                    nameTextView.text = "Nombre"
-                    Toast.makeText(activity?.baseContext, "Error al obtener el nombre del usuario", Toast.LENGTH_SHORT).show()
+                    if (isAdded) { // Verificar si el fragmento está adjunto
+                        nameTextView.text = "Nombre"
+                        Toast.makeText(requireContext(), "Error al obtener el nombre del usuario", Toast.LENGTH_SHORT).show()
+                    }
                 }
-
         } else {
             nameTextView.text = "Nombre"
             emailTextView.text = "Correo electrónico"
@@ -87,10 +88,10 @@ class ProfileFragment : Fragment() {
         builder.setMessage("¿Estás seguro de que quieres cerrar sesión?")
         builder.setPositiveButton("Sí") { dialog, which ->
             firebaseAuth.signOut()
-            Toast.makeText(activity?.baseContext, "Sesión cerrada correctamente", Toast.LENGTH_SHORT).show()
-            val intent = Intent(activity, LoginActivity::class.java)
+            Toast.makeText(requireContext(), "Sesión cerrada correctamente", Toast.LENGTH_SHORT).show()
+            val intent = Intent(requireActivity(), LoginActivity::class.java)
             startActivity(intent)
-            activity?.finish()
+            requireActivity().finish()
         }
         builder.setNegativeButton("No") { dialog, which ->
             // No hacer nada si se selecciona "No"
