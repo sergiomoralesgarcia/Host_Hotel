@@ -27,7 +27,7 @@
         android:layout_marginTop="20dp"
         android:background="@color/backText"
         android:ems="10"
-        android:hint="@string/edt_street"
+        android:hint="@string/edt_info"
         android:inputType="textPersonName"
         android:padding="10dp"
         android:textColor="@color/black"
@@ -35,27 +35,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtStreet" />
+        app:layout_constraintTop_toBottomOf="@+id/edtInfo" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/edtNombre"
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@color/backText"
-        android:ems="10"
-        android:hint="@string/edt_Url"
-        android:inputType="textEmailAddress"
-        android:padding="10dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edtUrl" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/edtCiudad"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -69,7 +52,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtAdd" />
+        app:layout_constraintTop_toBottomOf="@id/txtAdd" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edtCiudad"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/backText"
+        android:ems="10"
+        android:hint="@string/edt_city"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtNombre" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/edtStreet"
@@ -78,7 +78,7 @@
         android:layout_marginTop="20dp"
         android:background="@color/backText"
         android:ems="10"
-        android:hint="@string/edt_city"
+        android:hint="@string/edt_street"
         android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
@@ -94,14 +94,14 @@
         android:layout_marginTop="20dp"
         android:background="@color/backText"
         android:ems="10"
-        android:hint="@string/edt_info"
+        android:hint="@string/edt_Url"
         android:padding="10dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/edtStreet" />
 
     <Button
         android:id="@+id/btnAddHotel"
@@ -114,6 +114,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtInfo" />
+        app:layout_constraintTop_toBottomOf="@+id/edtUrl" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
