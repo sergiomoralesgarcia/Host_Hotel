@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -70,7 +72,6 @@ class HomeFragment : Fragment() {
         return view
     }
 
-
     private fun getHotelData() {
         db = FirebaseFirestore.getInstance()
         val hotelsCollection = db.collection("hotels")
@@ -86,6 +87,13 @@ class HomeFragment : Fragment() {
                     openHotelDetail(hotel)
                 }
             })
+
+            adapter.setOnItemLongClickListener(object : MyAdapter.OnItemLongClickListener {
+                override fun onItemLongClick(hotel: Hotel) {
+                    deleteHotelFromFirestore(hotel)
+                }
+            })
+
             hotelRecyclerView.adapter = adapter
 
             // Una vez que hayas procesado los datos, llama a la función showData()
@@ -151,4 +159,45 @@ class HomeFragment : Fragment() {
         startActivity(intent)
     }
 
+    private fun deleteHotelFromFirestore(hotel: Hotel) {
+        val alertDialogBuilder = AlertDialog.Builder(requireContext())
+        alertDialogBuilder.setTitle("Confirmar eliminación")
+        alertDialogBuilder.setMessage("¿Estás seguro de eliminar este hotel?")
+        alertDialogBuilder.setPositiveButton("Eliminar") { dialog, _ ->
+            // Eliminar el hotel
+            val db = FirebaseFirestore.getInstance()
+            val hotelsCollection = db.collection("hotels")
+
+            hotelsCollection
+                .whereEqualTo("name_hotel", hotel.name_hotel)
+                .get()
+                .addOnSuccessListener { snapshot ->
+                    if (!snapshot.isEmpty) {
+                        val document = snapshot.documents[0]
+                        document.reference.delete()
+                            .addOnSuccessListener {
+                                Toast.makeText(requireContext(), "Hotel eliminado correctamente", Toast.LENGTH_SHORT).show()
+                                // Actualizar el RecyclerView
+                                hotelArrayList.remove(hotel)
+                                hotelRecyclerView.adapter?.notifyDataSetChanged()
+                            }
+                            .addOnFailureListener { exception ->
+                                Toast.makeText(requireContext(), "Error al eliminar el hotel", Toast.LENGTH_SHORT).show()
+                            }
+                    } else {
+                        Toast.makeText(requireContext(), "Hotel no encontrado", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(requireContext(), "Error al eliminar el hotel", Toast.LENGTH_SHORT).show()
+                }
+        }
+        alertDialogBuilder.setNegativeButton("Cancelar") { dialog, _ ->
+            // Cancelar eliminación
+            dialog.dismiss()
+        }
+
+        val alertDialog = alertDialogBuilder.create()
+        alertDialog.show()
+    }
 }

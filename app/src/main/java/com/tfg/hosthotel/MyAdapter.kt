@@ -10,8 +10,24 @@ import com.tfg.hosthotel.DetailActivity
 import com.tfg.hosthotel.Hotel
 import com.tfg.hosthotel.R
 
-class MyAdapter(private val hotelList: ArrayList<Hotel>, private val itemClickListener: OnItemClickListener) :
-    RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+class MyAdapter(
+    private val hotelList: ArrayList<Hotel>,
+    private val itemClickListener: OnItemClickListener
+) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+
+    private var longClickListener: OnItemLongClickListener? = null
+
+    interface OnItemClickListener {
+        fun onItemClick(hotel: Hotel)
+    }
+
+    interface OnItemLongClickListener {
+        fun onItemLongClick(hotel: Hotel)
+    }
+
+    fun setOnItemLongClickListener(listener: OnItemLongClickListener) {
+        longClickListener = listener
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
@@ -31,14 +47,15 @@ class MyAdapter(private val hotelList: ArrayList<Hotel>, private val itemClickLi
         holder.itemView.setOnClickListener {
             itemClickListener.onItemClick(currentItem)
         }
+
+        holder.itemView.setOnLongClickListener {
+            longClickListener?.onItemLongClick(currentItem)
+            true
+        }
     }
 
     override fun getItemCount(): Int {
         return hotelList.size
-    }
-
-    interface OnItemClickListener {
-        fun onItemClick(hotel: Hotel)
     }
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
