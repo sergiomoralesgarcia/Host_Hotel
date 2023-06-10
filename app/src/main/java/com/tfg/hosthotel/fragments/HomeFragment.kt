@@ -1,9 +1,5 @@
-import MyAdapter
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,21 +9,23 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.tfg.hosthotel.DetailActivity
+import com.tfg.hosthotel.EditActivity
 import com.tfg.hosthotel.Hotel
 import com.tfg.hosthotel.R
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), MyAdapter.OnItemClickListener, MyAdapter.OnItemEditClickListener {
 
     private lateinit var db: FirebaseFirestore
     private lateinit var hotelRecyclerView: RecyclerView
     private lateinit var hotelArrayList: ArrayList<Hotel>
 
-    lateinit var llContenedor: LinearLayout
-    lateinit var llCargando: LinearLayout
+    private lateinit var llContenedor: LinearLayout
+    private lateinit var llCargando: LinearLayout
 
     private var selectedCity: String? = null
     private lateinit var buttons: List<Button>
@@ -39,7 +37,7 @@ class HomeFragment : Fragment() {
         hotelRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         hotelRecyclerView.setHasFixedSize(true)
 
-        hotelArrayList = arrayListOf<Hotel>()
+        hotelArrayList = arrayListOf()
 
         val btnCadiz = view.findViewById<Button>(R.id.btnCadiz)
         val btnCordoba = view.findViewById<Button>(R.id.btnCordoba)
@@ -82,11 +80,7 @@ class HomeFragment : Fragment() {
                 hotelArrayList.add(hotel!!)
             }
 
-            val adapter = MyAdapter(hotelArrayList, object : MyAdapter.OnItemClickListener {
-                override fun onItemClick(hotel: Hotel) {
-                    openHotelDetail(hotel)
-                }
-            })
+            val adapter = MyAdapter(hotelArrayList, this, this)
 
             adapter.setOnItemLongClickListener(object : MyAdapter.OnItemLongClickListener {
                 override fun onItemLongClick(hotel: Hotel) {
@@ -132,21 +126,21 @@ class HomeFragment : Fragment() {
 
     private fun filterHotelsByCity(city: String) {
         val filteredList = hotelArrayList.filter { hotel -> hotel.localtion_hotel == city }
-        val adapter = MyAdapter(filteredList as ArrayList<Hotel>, object : MyAdapter.OnItemClickListener {
-            override fun onItemClick(hotel: Hotel) {
-                openHotelDetail(hotel)
-            }
-        })
+        val adapter = MyAdapter(filteredList as ArrayList<Hotel>, this, this)
         hotelRecyclerView.adapter = adapter
     }
 
     private fun updateHotelList() {
-        val adapter = MyAdapter(hotelArrayList, object : MyAdapter.OnItemClickListener {
-            override fun onItemClick(hotel: Hotel) {
-                openHotelDetail(hotel)
-            }
-        })
+        val adapter = MyAdapter(hotelArrayList, this, this)
         hotelRecyclerView.adapter = adapter
+    }
+
+    override fun onItemClick(hotel: Hotel) {
+        openHotelDetail(hotel)
+    }
+
+    override fun onItemEditClick(hotel: Hotel) {
+        openEditActivity(hotel)
     }
 
     private fun openHotelDetail(hotel: Hotel) {
@@ -156,6 +150,12 @@ class HomeFragment : Fragment() {
         intent.putExtra("hotelCity", hotel.localtion_hotel)
         intent.putExtra("hotelStreet", hotel.street_hotel)
         intent.putExtra("hotelInfo", hotel.info_hotel)
+        startActivity(intent)
+    }
+
+    private fun openEditActivity(hotel: Hotel) {
+        val intent = Intent(requireContext(), EditActivity::class.java)
+        intent.putExtra("hotelName", hotel.name_hotel)
         startActivity(intent)
     }
 

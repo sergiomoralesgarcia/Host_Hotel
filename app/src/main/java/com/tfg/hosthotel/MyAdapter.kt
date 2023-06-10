@@ -6,13 +6,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import com.tfg.hosthotel.DetailActivity
 import com.tfg.hosthotel.Hotel
 import com.tfg.hosthotel.R
 
 class MyAdapter(
     private val hotelList: ArrayList<Hotel>,
-    private val itemClickListener: OnItemClickListener
+    private val itemClickListener: OnItemClickListener,
+    private val itemEditClickListener: OnItemEditClickListener
 ) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
     private var longClickListener: OnItemLongClickListener? = null
@@ -23,6 +23,10 @@ class MyAdapter(
 
     interface OnItemLongClickListener {
         fun onItemLongClick(hotel: Hotel)
+    }
+
+    interface OnItemEditClickListener {
+        fun onItemEditClick(hotel: Hotel)
     }
 
     fun setOnItemLongClickListener(listener: OnItemLongClickListener) {
@@ -51,6 +55,10 @@ class MyAdapter(
         holder.itemView.setOnLongClickListener {
             longClickListener?.onItemLongClick(currentItem)
             true
+        }
+
+        holder.itemView.findViewById<View>(R.id.btn_edit)?.setOnClickListener {
+            itemEditClickListener.onItemEditClick(currentItem)
         }
     }
 
