@@ -8,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.tfg.hosthotel.R
@@ -36,6 +38,7 @@ class ProfileFragment : Fragment() {
 
         val nameTextView: TextView = view.findViewById(R.id.name_textview)
         val emailTextView: TextView = view.findViewById(R.id.email_textview)
+        val profileImageView: ImageView = view.findViewById(R.id.profile_image)
 
         val signOutButton: Button = view.findViewById(R.id.btn_logout)
         signOutButton.setOnClickListener {
@@ -49,31 +52,27 @@ class ProfileFragment : Fragment() {
         }
 
         val currentUser = firebaseAuth.currentUser
-        if (isAdded && currentUser != null) { // Verificar si el fragmento está adjunto
+        if (isAdded && currentUser != null) {
             val email = currentUser.email
             emailTextView.text = email
 
-            val userId = currentUser.uid
-            val userRef = firestore.collection("users").document(userId)
-            userRef.get()
-                .addOnSuccessListener { document ->
-                    if (isAdded && document != null && document.exists()) { // Verificar si el fragmento está adjunto
-                        val firstName = document.getString("email")
-                        if (firstName != null && firstName.isNotEmpty()) {
-                            nameTextView.text = firstName
-                        } else {
-                            nameTextView.text = "Nombre"
-                        }
-                    } else {
-                        nameTextView.text = "Nombre"
-                    }
-                }
-                .addOnFailureListener { exception ->
-                    if (isAdded) { // Verificar si el fragmento está adjunto
-                        nameTextView.text = "Nombre"
-                        Toast.makeText(requireContext(), "Error al obtener el nombre del usuario", Toast.LENGTH_SHORT).show()
-                    }
-                }
+            val displayName = currentUser.displayName
+            if (displayName != null && displayName.isNotEmpty()) {
+                nameTextView.text = displayName
+            } else {
+                nameTextView.text = "Nombre"
+            }
+
+            val photoUrl = currentUser.photoUrl.toString()
+            if (!photoUrl.isNullOrEmpty()) {
+                Glide.with(this)
+                    .load(photoUrl)
+                    .placeholder(R.drawable.user)
+                    .error(R.drawable.user)
+                    .into(profileImageView)
+            } else {
+                profileImageView.setImageResource(R.drawable.user)
+            }
         } else {
             nameTextView.text = "Nombre"
             emailTextView.text = "Correo electrónico"

@@ -13,6 +13,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.tfg.hosthotel.MainActivity
 import com.tfg.hosthotel.R
@@ -21,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var authStateListener: FirebaseAuth.AuthStateListener
     private val RC_SIGN_IN = 123
-
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val screenSplash = installSplashScreen()
@@ -143,18 +144,32 @@ class LoginActivity : AppCompatActivity() {
         firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Si la autenticación con Firebase es exitosa, el usuario se autentica
-                    Toast.makeText(baseContext, "Autenticación exitosa", Toast.LENGTH_SHORT).show()
+                    val user = firebaseAuth.currentUser
+                    val verifica = user?.isEmailVerified
+                    if (verifica == true) {
+                        // Si la verificación del correo electrónico es exitosa, el usuario se autentica
+                        Toast.makeText(baseContext, "Autenticación exitosa", Toast.LENGTH_SHORT).show()
 
-                    // Accedemos a la página principal
-                    val i = Intent(this, MainActivity::class.java)
-                    startActivity(i)
-                } else {
-                    // Si la autenticación falla, mostrar un mensaje de error
-                    Toast.makeText(baseContext, "Error al autenticarse con Firebase", Toast.LENGTH_SHORT).show()
+                        // Obtener el nombre y la imagen del usuario desde Firebase Authentication
+                        val displayName = user?.displayName
+                        val photoUrl = user?.photoUrl?.toString()
+
+                        // Mostrar el nombre del usuario
+                        Toast.makeText(baseContext, "Bienvenido, $displayName", Toast.LENGTH_SHORT).show()
+
+                        // Acceder a la página principal o realizar cualquier otra acción necesaria
+                        val i = Intent(this, MainActivity::class.java)
+                        i.putExtra("displayName", displayName)
+                        i.putExtra("photoUrl", photoUrl)
+                        startActivity(i)
+                    } else {
+                        // Si la verificación del correo electrónico falla, el usuario debe verificar su correo electrónico antes de autenticarse
+                        Toast.makeText(baseContext, "Verifique su correo", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
     }
+
 
 
 

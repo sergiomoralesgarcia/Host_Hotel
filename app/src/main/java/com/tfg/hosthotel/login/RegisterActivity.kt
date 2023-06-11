@@ -1,28 +1,26 @@
 package com.tfg.hosthotel.login
 
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.tfg.hosthotel.R
-import java.util.jar.Attributes.Name
 
 class RegisterActivity : AppCompatActivity() {
-    // Declaración de la instancia de FirebaseAuth
     private lateinit var firebaseAuth: FirebaseAuth
     private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_register)
 
-        // Declaración de los elementos del layout como variables y asignación de su valor correspondiente
         val txtnombre_nuevo: TextView = findViewById(R.id.edtNombre)
         val txtapellido_nuevo: TextView = findViewById(R.id.edtApellidos)
         val txtemail_nuevo: TextView = findViewById(R.id.edtEmailNuevo)
@@ -32,14 +30,13 @@ class RegisterActivity : AppCompatActivity() {
         val btnCrear: Button = findViewById(R.id.btnCrearCuentaNueva)
         val btnCancelar: Button = findViewById(R.id.btn_cancelar)
 
-        // Función asociada al botón "Crear cuenta" que llama a la función createAccount con los parámetros email y password
         btnCrear.setOnClickListener {
             val pass1 = txtpassword1.text.toString()
             val pass2 = txtpassword2.text.toString()
 
-            // Comprobación de que las dos contraseñas introducidas son iguales, en caso afirmativo se llama a la función createAccount
             if (pass1 == pass2) {
-                createAccount(txtemail_nuevo.text.toString(), txtpassword1.text.toString())
+                val displayName = "${txtnombre_nuevo.text} ${txtapellido_nuevo.text}"
+                createAccount(txtemail_nuevo.text.toString(), txtpassword1.text.toString(), displayName, txturl_nuevo.text.toString())
 
                 val user = hashMapOf(
                     "first_name" to txtnombre_nuevo.text.toString(),
@@ -48,62 +45,76 @@ class RegisterActivity : AppCompatActivity() {
                     "url" to txturl_nuevo.text.toString()
                 )
 
-                db.collection("users").document().set(user)
+                db.collection("users").document(user["email"] as String).set(user)
+                    .addOnSuccessListener {
+                        Toast.makeText(baseContext, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnFailureListener { e ->
+                        Toast.makeText(baseContext, "Error al registrar el usuario: ${e.message}", Toast.LENGTH_SHORT).show()
+                    }
             } else {
                 Toast.makeText(baseContext, "Error en las contraseñas", Toast.LENGTH_LONG).show()
                 txtpassword1.requestFocus()
             }
         }
 
-
-        // Función asociada al botón "Cancelar" que llama a la función onBackPressed()
         btnCancelar.setOnClickListener {
             onBackPressed()
         }
 
-        // Asignación de la instancia de FirebaseAuth
         firebaseAuth = Firebase.auth
     }
 
-    // Función que recibe los parámetros email y password para crear una cuenta nueva en Firebase
-    private fun createAccount (email: String, password: String){
-
-        // Comprobación de que los campos email y password no están vacíos, en caso contrario se muestra un mensaje de error
+    private fun createAccount(email: String, password: String, displayName: String, url: String) {
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(baseContext, "Rellene los campos", Toast.LENGTH_SHORT).show()
             return
         }
 
-        // Creación de la cuenta de usuario en Firebase mediante el uso de la instancia de FirebaseAuth
-        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this){ task ->
-            if (task.isSuccessful){
+        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
+            if (task.isSuccessful) {
+                val user = firebaseAuth.currentUser
 
-                // En caso de que la creación de la cuenta sea satisfactoria, se envía un correo de verificación al usuario
-                sendEmailVerification()
+                val profileUpdates = UserProfileChangeRequest.Builder()
+                    .setDisplayName(displayName)
+                    .setPhotoUri(Uri.parse(url)) // Agregar la URL de la imagen de perfil
+                    .build()
 
-                // Se muestra un mensaje al usuario indicando que la cuenta se ha creado correctamente
-                Toast.makeText(baseContext, "Cuenta creada correctamente, se requiere veificación", Toast.LENGTH_SHORT).show()
+                user?.updateProfile(profileUpdates)?.addOnCompleteListener { profileTask ->
+                    if (profileTask.isSuccessful) {
+                        val userUpdate = hashMapOf<String, Any>(
+                            "url" to url
+                        )
 
-                // Se finaliza la actividad actual y se vuelve a la actividad anterior
-                onBackPressed()
+                        db.collection("users").document(email).update(userUpdate)
+                            .addOnSuccessListener {
+                                Toast.makeText(baseContext, "URL de la imagen de perfil guardada correctamente", Toast.LENGTH_SHORT).show()
+                            }
+                            .addOnFailureListener { e ->
+                                Toast.makeText(baseContext, "Error al guardar la URL de la imagen de perfil: ${e.message}", Toast.LENGTH_SHORT).show()
+                            }
+
+                        sendEmailVerification()
+
+                        Toast.makeText(baseContext, "Cuenta creada correctamente, se requiere verificación", Toast.LENGTH_SHORT).show()
+                        onBackPressed()
+                    } else {
+                        Toast.makeText(baseContext, "Error al establecer el nombre de usuario", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } else {
+                Toast.makeText(baseContext, "Algo salió mal, error: ${task.exception}", Toast.LENGTH_SHORT).show()
             }
-            else{
-                // En caso contrario se muestra un mensaje
-                Toast.makeText(baseContext, "Algo salió mal, error" + task.exception, Toast.LENGTH_SHORT).show()
-
-            }
-
         }
     }
 
-    private fun sendEmailVerification(){
+    private fun sendEmailVerification() {
         val user = firebaseAuth.currentUser!!
-        user.sendEmailVerification().addOnCompleteListener(this){ task ->
-            if (task.isSuccessful){
-
-            }
-            else{
-
+        user.sendEmailVerification().addOnCompleteListener(this) { task ->
+            if (task.isSuccessful) {
+                // El correo de verificación se envió correctamente
+            } else {
+                // Error al enviar el correo de verificación
             }
         }
     }
