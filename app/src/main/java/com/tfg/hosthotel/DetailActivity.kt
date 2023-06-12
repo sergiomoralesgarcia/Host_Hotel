@@ -1,16 +1,25 @@
 package com.tfg.hosthotel
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.tfg.hosthotel.databinding.ActivityDetailBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailBinding
+    private lateinit var reviewAdapter: ReviewAdapter
+    private val reviewList = mutableListOf<Review>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,12 +38,14 @@ class DetailActivity : AppCompatActivity() {
         binding.txtCalle.text = hotelStreet
         binding.txtInfo.text = hotelInfo
 
+        setupRecyclerView(hotelName)
+
         binding.fabAdd.setOnClickListener {
-            showReviewDialog()
+            showReviewDialog(hotelName)
         }
     }
 
-    private fun showReviewDialog() {
+    private fun showReviewDialog(hotelName: String?) {
         val builder = AlertDialog.Builder(this)
         val dialogView = layoutInflater.inflate(R.layout.dialog_review, null)
         builder.setView(dialogView)
@@ -46,10 +57,68 @@ class DetailActivity : AppCompatActivity() {
         dialog.show()
 
         btnSubmit.setOnClickListener {
-            val review = etReview.text.toString()
-            // Aquí puedes realizar acciones con la reseña (guardarla, enviarla, etc.)
+            val reviewText = etReview.text.toString()
 
-            dialog.dismiss()
+            val userEmail = FirebaseAuth.getInstance().currentUser?.email
+
+            if (hotelName != null && userEmail != null) {
+                val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+
+                val review = Review(null, hotelName, userEmail, reviewText, currentDate)
+                reviewList.add(review)
+                reviewAdapter.notifyDataSetChanged()
+
+                saveReviewToFirestore(review, hotelName)
+
+                dialog.dismiss()
+            } else {
+                // No se pudo obtener el nombre del hotel o el email del usuario
+            }
         }
+    }
+
+    private fun setupRecyclerView(hotelName: String?) {
+        reviewAdapter = ReviewAdapter(reviewList)
+        val layoutManager = LinearLayoutManager(this)
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = reviewAdapter
+
+        if (hotelName != null) {
+            val db = FirebaseFirestore.getInstance()
+            db.collection("reviews")
+                .document(hotelName)
+                .collection("reviews")
+                .get()
+                .addOnSuccessListener { querySnapshot ->
+                    reviewList.clear()
+                    for (document in querySnapshot) {
+                        val review = document.toObject(Review::class.java)
+                        reviewList.add(review)
+                    }
+                    reviewAdapter.notifyDataSetChanged()
+                }
+                .addOnFailureListener { e ->
+                    Log.e("Review", "Error getting reviews: $e")
+                }
+        }
+    }
+
+    private fun saveReviewToFirestore(review: Review, hotelName: String) {
+        val db = FirebaseFirestore.getInstance()
+        val collectionRef = db.collection("reviews")
+            .document(hotelName)
+            .collection("reviews")
+
+        collectionRef
+            .document(review.userEmail!!)
+            .set(review)
+            .addOnSuccessListener {
+                review.id = review.userEmail
+                reviewAdapter.notifyDataSetChanged()
+            }
+            .addOnFailureListener { e ->
+                // Error al guardar la reseña
+            }
     }
 }
