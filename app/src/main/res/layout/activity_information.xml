@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#887979"
+    android:background="@color/fondo"
     tools:layout_editor_absoluteX="129dp"
     tools:layout_editor_absoluteY="116dp">
 
@@ -88,114 +88,109 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="520dp"
+        android:layout_marginBottom="10dp"
         android:padding="15dp"
         android:text="@string/txt_follow"
         android:textColor="@color/barraInferior"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.03"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/btn_github"
         android:layout_width="91dp"
         android:layout_height="85dp"
-        android:layout_marginTop="584dp"
         android:background="@drawable/transparente"
         android:clickable="true"
         android:src="@drawable/transparente"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="91dp"
         android:layout_height="85dp"
-        android:layout_marginTop="584dp"
         android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:srcCompat="@drawable/github" />
 
     <ImageButton
         android:id="@+id/btn_instagram"
         android:layout_width="91dp"
         android:layout_height="85dp"
-        android:layout_marginTop="584dp"
         android:background="@drawable/transparente"
         android:clickable="true"
         android:src="@drawable/transparente"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_close"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.618"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/btn_close"
         android:layout_width="91dp"
         android:layout_height="85dp"
-        android:layout_marginTop="584dp"
         android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.618"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:srcCompat="@drawable/instagram" />
 
     <ImageButton
         android:id="@+id/btn_twitter"
         android:layout_width="91dp"
         android:layout_height="85dp"
-        android:layout_marginTop="584dp"
         android:background="@drawable/transparente"
         android:clickable="true"
         android:src="@drawable/transparente"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.334"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="91dp"
         android:layout_height="85dp"
-        android:layout_marginTop="584dp"
         android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.334"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:srcCompat="@drawable/twitter" />
 
 
     <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="91dp"
         android:layout_height="85dp"
-        android:layout_marginTop="584dp"
         android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.903"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:srcCompat="@drawable/facebook" />
 
     <ImageButton
         android:id="@+id/btn_facebook"
         android:layout_width="91dp"
         android:layout_height="85dp"
-        android:layout_marginTop="584dp"
         android:background="@drawable/transparente"
         android:clickable="true"
         android:src="@drawable/transparente"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.903"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_instagram" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

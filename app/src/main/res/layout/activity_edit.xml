@@ -73,7 +73,7 @@
     <EditText
         android:id="@+id/edtUrl"
         android:layout_width="240dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_marginTop="20dp"
         android:background="@color/backText"
         android:ems="10"
