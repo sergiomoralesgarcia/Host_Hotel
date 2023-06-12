@@ -9,10 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 class ReviewAdapter(private val reviewList: List<Review>) : RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder>() {
 
     inner class ReviewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val reviewName: TextView = itemView.findViewById(R.id.tvReviewName)
         val reviewText: TextView = itemView.findViewById(R.id.tvReviewText)
         val reviewDate: TextView = itemView.findViewById(R.id.tvReviewDate)
 
         fun bind(review: Review) {
+            reviewName.text = review.userEmail
             reviewText.text = review.reviewText
             reviewDate.text = review.currentDate
         }

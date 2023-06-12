@@ -68,7 +68,7 @@ class DetailActivity : AppCompatActivity() {
                 reviewList.add(review)
                 reviewAdapter.notifyDataSetChanged()
 
-                saveReviewToFirestore(review, hotelName)
+                saveReviewToFirestore(review, hotelName, userEmail) // Agregar userEmail al método
 
                 dialog.dismiss()
             } else {
@@ -104,17 +104,17 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun saveReviewToFirestore(review: Review, hotelName: String) {
+    private fun saveReviewToFirestore(review: Review, hotelName: String, userEmail: String) {
         val db = FirebaseFirestore.getInstance()
         val collectionRef = db.collection("reviews")
             .document(hotelName)
             .collection("reviews")
 
         collectionRef
-            .document(review.userEmail!!)
+            .document(userEmail) // Usar el userEmail en lugar de review.userEmail
             .set(review)
             .addOnSuccessListener {
-                review.id = review.userEmail
+                review.id = userEmail // Usar el userEmail en lugar de review.userEmail
                 reviewAdapter.notifyDataSetChanged()
             }
             .addOnFailureListener { e ->
