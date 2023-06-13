@@ -14,7 +14,7 @@ class ReviewAdapter(private val reviewList: List<Review>) : RecyclerView.Adapter
         val reviewDate: TextView = itemView.findViewById(R.id.tvReviewDate)
 
         fun bind(review: Review) {
-            reviewName.text = review.userEmail
+            reviewName.text = review.userName
             reviewText.text = review.reviewText
             reviewDate.text = review.currentDate
         }

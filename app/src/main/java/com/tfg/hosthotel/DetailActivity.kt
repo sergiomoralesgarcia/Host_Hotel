@@ -60,19 +60,21 @@ class DetailActivity : AppCompatActivity() {
             val reviewText = etReview.text.toString()
 
             val userEmail = FirebaseAuth.getInstance().currentUser?.email
+            val userName = FirebaseAuth.getInstance().currentUser?.displayName
 
-            if (hotelName != null && userEmail != null) {
-                val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+            if (hotelName != null && userEmail != null && userName != null) {
+                val currentDate = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(Date())
 
                 val review = Review(null, hotelName, userEmail, reviewText, currentDate)
+                review.userName = userName // Asignar el nombre de usuario al campo userName
                 reviewList.add(review)
                 reviewAdapter.notifyDataSetChanged()
 
-                saveReviewToFirestore(review, hotelName, userEmail) // Agregar userEmail al método
+                saveReviewToFirestore(review, hotelName, userEmail) // Actualizar el método
 
                 dialog.dismiss()
             } else {
-                // No se pudo obtener el nombre del hotel o el email del usuario
+                // No se pudo obtener el nombre del hotel, el email del usuario o el nombre de usuario
             }
         }
     }
