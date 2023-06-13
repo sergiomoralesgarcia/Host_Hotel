@@ -18,11 +18,12 @@ import com.tfg.hosthotel.EditActivity
 import com.tfg.hosthotel.Hotel
 import com.tfg.hosthotel.R
 
-class HomeFragment : Fragment(), MyAdapter.OnItemClickListener, MyAdapter.OnItemEditClickListener {
+class HomeFragment : Fragment(), MyAdapter.OnItemClickListener, MyAdapter.OnItemEditClickListener, MyAdapter.OnItemLongClickListener {
 
     private lateinit var db: FirebaseFirestore
     private lateinit var hotelRecyclerView: RecyclerView
     private lateinit var hotelArrayList: ArrayList<Hotel>
+    private lateinit var filteredHotelArrayList: ArrayList<Hotel>
 
     private lateinit var llContenedor: LinearLayout
     private lateinit var llCargando: LinearLayout
@@ -38,6 +39,7 @@ class HomeFragment : Fragment(), MyAdapter.OnItemClickListener, MyAdapter.OnItem
         hotelRecyclerView.setHasFixedSize(true)
 
         hotelArrayList = arrayListOf()
+        filteredHotelArrayList = arrayListOf()
 
         val btnCadiz = view.findViewById<Button>(R.id.btnCadiz)
         val btnCordoba = view.findViewById<Button>(R.id.btnCordoba)
@@ -80,13 +82,11 @@ class HomeFragment : Fragment(), MyAdapter.OnItemClickListener, MyAdapter.OnItem
                 hotelArrayList.add(hotel!!)
             }
 
-            val adapter = MyAdapter(hotelArrayList, this, this)
+            filteredHotelArrayList.addAll(hotelArrayList)
 
-            adapter.setOnItemLongClickListener(object : MyAdapter.OnItemLongClickListener {
-                override fun onItemLongClick(hotel: Hotel) {
-                    deleteHotelFromFirestore(hotel)
-                }
-            })
+            val adapter = MyAdapter(filteredHotelArrayList, this, this)
+
+            adapter.setOnItemLongClickListener(this)
 
             hotelRecyclerView.adapter = adapter
 
@@ -125,14 +125,15 @@ class HomeFragment : Fragment(), MyAdapter.OnItemClickListener, MyAdapter.OnItem
     }
 
     private fun filterHotelsByCity(city: String) {
-        val filteredList = hotelArrayList.filter { hotel -> hotel.localtion_hotel == city }
-        val adapter = MyAdapter(filteredList as ArrayList<Hotel>, this, this)
-        hotelRecyclerView.adapter = adapter
+        filteredHotelArrayList.clear()
+        filteredHotelArrayList.addAll(hotelArrayList.filter { hotel -> hotel.localtion_hotel == city })
+        hotelRecyclerView.adapter?.notifyDataSetChanged()
     }
 
     private fun updateHotelList() {
-        val adapter = MyAdapter(hotelArrayList, this, this)
-        hotelRecyclerView.adapter = adapter
+        filteredHotelArrayList.clear()
+        filteredHotelArrayList.addAll(hotelArrayList)
+        hotelRecyclerView.adapter?.notifyDataSetChanged()
     }
 
     override fun onItemClick(hotel: Hotel) {
@@ -141,6 +142,10 @@ class HomeFragment : Fragment(), MyAdapter.OnItemClickListener, MyAdapter.OnItem
 
     override fun onItemEditClick(hotel: Hotel) {
         openEditActivity(hotel)
+    }
+
+    override fun onItemLongClick(hotel: Hotel) {
+        deleteHotelFromFirestore(hotel)
     }
 
     private fun openHotelDetail(hotel: Hotel) {
@@ -179,6 +184,7 @@ class HomeFragment : Fragment(), MyAdapter.OnItemClickListener, MyAdapter.OnItem
                                 Toast.makeText(requireContext(), "Hotel eliminado correctamente", Toast.LENGTH_SHORT).show()
                                 // Actualizar el RecyclerView
                                 hotelArrayList.remove(hotel)
+                                filteredHotelArrayList.remove(hotel)
                                 hotelRecyclerView.adapter?.notifyDataSetChanged()
                             }
                             .addOnFailureListener { exception ->
