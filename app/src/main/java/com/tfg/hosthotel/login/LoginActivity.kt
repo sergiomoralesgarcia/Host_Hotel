@@ -78,7 +78,7 @@ class LoginActivity : AppCompatActivity() {
     // Función para el inicio de sesión
     private fun signIn(email: String, password: String) {
         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(baseContext, "Ingrese correo y contraseña", Toast.LENGTH_SHORT).show()
+            Toast.makeText(baseContext, R.string.txt_log, Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -89,18 +89,18 @@ class LoginActivity : AppCompatActivity() {
                 val verifica = user?.isEmailVerified
                 if (verifica == true) {
                     // Si la verificación del correo electrónico es exitosa, el usuario se autentica
-                    Toast.makeText(baseContext, "Autenticación exitosa", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, R.string.txt_log_success, Toast.LENGTH_SHORT).show()
 
                     // Accedemos a la página principal
                     val i = Intent(this, MainActivity::class.java)
                     startActivity(i)
                 } else {
                     // Si la verificación del correo electrónico falla, el usuario debe verificar su correo electrónico antes de autenticarse
-                    Toast.makeText(baseContext, "Verifique su correo", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, R.string.txt_log_verify, Toast.LENGTH_SHORT).show()
                 }
             } else {
                 // Si el inicio de sesión falla, se muestra un mensaje de error
-                Toast.makeText(baseContext, "Error de email y/o contraseña", Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, R.string.txt_log_error, Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -148,7 +148,7 @@ class LoginActivity : AppCompatActivity() {
                     val verifica = user?.isEmailVerified
                     if (verifica == true) {
                         // Si la verificación del correo electrónico es exitosa, el usuario se autentica
-                        Toast.makeText(baseContext, "Autenticación exitosa", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext, R.string.txt_log_success, Toast.LENGTH_SHORT).show()
 
                         // Obtener el nombre y la imagen del usuario desde Firebase Authentication
                         val displayName = user?.displayName
@@ -164,7 +164,7 @@ class LoginActivity : AppCompatActivity() {
                         startActivity(i)
                     } else {
                         // Si la verificación del correo electrónico falla, el usuario debe verificar su correo electrónico antes de autenticarse
-                        Toast.makeText(baseContext, "Verifique su correo", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext, R.string.txt_log_verify, Toast.LENGTH_SHORT).show()
                     }
                 }
             }

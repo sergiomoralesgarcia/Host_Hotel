@@ -47,7 +47,7 @@ class RememberActivity : AppCompatActivity() {
 
         // Se valida que el correo no esté vacío
         if (email.isEmpty()) {
-            Toast.makeText(baseContext, "Rellene los campos", Toast.LENGTH_SHORT).show()
+            Toast.makeText(baseContext, R.string.txt_rellenar, Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -56,12 +56,12 @@ class RememberActivity : AppCompatActivity() {
             .addOnCompleteListener() { task ->
                 if (task.isSuccessful){
                     // Si el proceso es exitoso, se muestra un mensaje y se regresa a la pantalla anterior
-                    Toast.makeText(baseContext, "Correo de cambido de contraseña enviado", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext,R.string.txt_pass_change, Toast.LENGTH_SHORT).show()
                     onBackPressed()
                 }
                 else{
                     // Si hay un error, se muestra un mensaje de error
-                    Toast.makeText(baseContext, "Error, no se puedo completar el proceso", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext,R.string.txt_process_error, Toast.LENGTH_SHORT).show()
 
                 }
             }

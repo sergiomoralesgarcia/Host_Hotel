@@ -57,7 +57,7 @@ class ConfigActivity : AppCompatActivity() {
             saveTheme(theme)
             saveLanguage(selectedLanguage)
 
-            Toast.makeText(this, "Cambios aplicados", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,R.string.txt_chang_applied, Toast.LENGTH_SHORT).show()
 
             val intent = Intent(this, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)

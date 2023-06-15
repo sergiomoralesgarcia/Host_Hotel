@@ -166,9 +166,9 @@ class HomeFragment : Fragment(), MyAdapter.OnItemClickListener, MyAdapter.OnItem
 
     private fun deleteHotelFromFirestore(hotel: Hotel) {
         val alertDialogBuilder = AlertDialog.Builder(requireContext())
-        alertDialogBuilder.setTitle("Confirmar eliminación")
-        alertDialogBuilder.setMessage("¿Estás seguro de eliminar este hotel?")
-        alertDialogBuilder.setPositiveButton("Eliminar") { dialog, _ ->
+        alertDialogBuilder.setTitle(getString(R.string.ttl_confirm_delete))
+        alertDialogBuilder.setMessage(R.string.ttl_ask_delete)
+        alertDialogBuilder.setPositiveButton(R.string.ttl_delete) { dialog, _ ->
             // Eliminar el hotel
             val db = FirebaseFirestore.getInstance()
             val hotelsCollection = db.collection("hotels")
@@ -181,24 +181,24 @@ class HomeFragment : Fragment(), MyAdapter.OnItemClickListener, MyAdapter.OnItem
                         val document = snapshot.documents[0]
                         document.reference.delete()
                             .addOnSuccessListener {
-                                Toast.makeText(requireContext(), "Hotel eliminado correctamente", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(requireContext(), R.string.ttl_delete_success, Toast.LENGTH_SHORT).show()
                                 // Actualizar el RecyclerView
                                 hotelArrayList.remove(hotel)
                                 filteredHotelArrayList.remove(hotel)
                                 hotelRecyclerView.adapter?.notifyDataSetChanged()
                             }
                             .addOnFailureListener { exception ->
-                                Toast.makeText(requireContext(), "Error al eliminar el hotel", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(requireContext(), R.string.ttl_delete_error, Toast.LENGTH_SHORT).show()
                             }
                     } else {
-                        Toast.makeText(requireContext(), "Hotel no encontrado", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), R.string.ttl_dont_fund, Toast.LENGTH_SHORT).show()
                     }
                 }
                 .addOnFailureListener { exception ->
-                    Toast.makeText(requireContext(), "Error al eliminar el hotel", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), R.string.ttl_delete_error, Toast.LENGTH_SHORT).show()
                 }
         }
-        alertDialogBuilder.setNegativeButton("Cancelar") { dialog, _ ->
+        alertDialogBuilder.setNegativeButton(R.string.btn_cancel) { dialog, _ ->
             // Cancelar eliminación
             dialog.dismiss()
         }

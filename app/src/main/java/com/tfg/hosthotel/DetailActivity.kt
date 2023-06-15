@@ -1,5 +1,6 @@
 package com.tfg.hosthotel
 
+import ReviewAdapter
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button

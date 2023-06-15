@@ -83,16 +83,16 @@ class ProfileFragment : Fragment() {
 
     private fun signOut() {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Cerrar sesión")
-        builder.setMessage("¿Estás seguro de que quieres cerrar sesión?")
-        builder.setPositiveButton("Sí") { dialog, which ->
+        builder.setTitle(R.string.ttl_close_prof)
+        builder.setMessage(R.string.ttl_close_ask)
+        builder.setPositiveButton(R.string.ttl_yes) { dialog, which ->
             firebaseAuth.signOut()
-            Toast.makeText(requireContext(), "Sesión cerrada correctamente", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), R.string.ttl_close_success, Toast.LENGTH_SHORT).show()
             val intent = Intent(requireActivity(), LoginActivity::class.java)
             startActivity(intent)
             requireActivity().finish()
         }
-        builder.setNegativeButton("No") { dialog, which ->
+        builder.setNegativeButton(R.string.ttl_no) { dialog, which ->
             // No hacer nada si se selecciona "No"
         }
         val dialog = builder.create()

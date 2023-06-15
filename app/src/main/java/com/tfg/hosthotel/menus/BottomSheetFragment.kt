@@ -42,7 +42,7 @@ class BottomSheetFragment: BottomSheetDialogFragment() {
         }
 
         btn_list.setOnClickListener {
-            val intent = Intent(context, ListReviewsAvtivity::class.java)
+            val intent = Intent(context, ListReviewsActivity::class.java)
             startActivity(intent)
             // Cerrar el BottomSheet
             dismiss()

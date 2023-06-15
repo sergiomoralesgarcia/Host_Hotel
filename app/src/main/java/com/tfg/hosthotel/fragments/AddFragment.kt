@@ -67,7 +67,7 @@ class AddFragment : Fragment() {
                 db.collection("hotels")
                     .add(hotel)
                     .addOnSuccessListener { documentReference ->
-                        Toast.makeText(requireContext(), "Hotel añadido correctamente", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), getString(R.string.add_success), Toast.LENGTH_SHORT).show()
                         // Puedes realizar alguna acción adicional después de guardar el hotel, si es necesario.
 
                         // Aquí puedes agregar el código para limpiar los campos de entrada de texto si lo deseas.
@@ -83,11 +83,11 @@ class AddFragment : Fragment() {
                             .commit()
                     }
                     .addOnFailureListener { e ->
-                        Toast.makeText(requireContext(), "Error al añadir el hotel", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(),  getString(R.string.add_error), Toast.LENGTH_SHORT).show()
                         // Puedes realizar alguna acción adicional en caso de error.
                     }
             } else {
-                Toast.makeText(requireContext(), "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.write_full), Toast.LENGTH_SHORT).show()
             }
         }
 

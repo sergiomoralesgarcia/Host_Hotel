@@ -47,13 +47,13 @@ class RegisterActivity : AppCompatActivity() {
 
                 db.collection("users").document(user["email"] as String).set(user)
                     .addOnSuccessListener {
-                        Toast.makeText(baseContext, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext,R.string.txt_user_success, Toast.LENGTH_SHORT).show()
                     }
                     .addOnFailureListener { e ->
                         Toast.makeText(baseContext, "Error al registrar el usuario: ${e.message}", Toast.LENGTH_SHORT).show()
                     }
             } else {
-                Toast.makeText(baseContext, "Error en las contraseñas", Toast.LENGTH_LONG).show()
+                Toast.makeText(baseContext, R.string.txt_pass_error, Toast.LENGTH_LONG).show()
                 txtpassword1.requestFocus()
             }
         }
@@ -67,7 +67,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun createAccount(email: String, password: String, displayName: String, url: String) {
         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(baseContext, "Rellene los campos", Toast.LENGTH_SHORT).show()
+            Toast.makeText(baseContext,R.string.txt_rellenar, Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -88,7 +88,7 @@ class RegisterActivity : AppCompatActivity() {
 
                         db.collection("users").document(email).update(userUpdate)
                             .addOnSuccessListener {
-                                Toast.makeText(baseContext, "URL de la imagen de perfil guardada correctamente", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(baseContext,R.string.txt_url_success, Toast.LENGTH_SHORT).show()
                             }
                             .addOnFailureListener { e ->
                                 Toast.makeText(baseContext, "Error al guardar la URL de la imagen de perfil: ${e.message}", Toast.LENGTH_SHORT).show()
@@ -96,14 +96,14 @@ class RegisterActivity : AppCompatActivity() {
 
                         sendEmailVerification()
 
-                        Toast.makeText(baseContext, "Cuenta creada correctamente, se requiere verificación", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext,R.string.txt_account_success, Toast.LENGTH_SHORT).show()
                         onBackPressed()
                     } else {
-                        Toast.makeText(baseContext, "Error al establecer el nombre de usuario", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext, R.string.txt_user_error, Toast.LENGTH_SHORT).show()
                     }
                 }
             } else {
-                Toast.makeText(baseContext, "Algo salió mal, error: ${task.exception}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext,"Algo salió mal, error: ${task.exception}", Toast.LENGTH_SHORT).show()
             }
         }
     }
