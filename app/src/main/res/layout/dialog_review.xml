@@ -10,7 +10,7 @@
         android:id="@+id/et_review"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Escribe tu reseña"
+        android:hint="@string/txt_write"
         android:maxLines="5"
         android:layout_marginTop="15dp"
         android:gravity="start|top" />
@@ -20,5 +20,5 @@
         android:background="@drawable/rounded_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Submit" />
+        android:text="@string/txt_submit" />
 </LinearLayout>

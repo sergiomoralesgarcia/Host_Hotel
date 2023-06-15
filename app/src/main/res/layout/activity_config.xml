@@ -7,73 +7,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_notif_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/txt_notificaciones"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.064"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/barra" />
-
-    <Switch
-        android:id="@+id/switch_notifications"
-        android:layout_width="194dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="184dp"
-        android:layout_marginTop="56dp"
-        android:padding="8dp"
-        android:text="@string/txt_opcionNotifi"
-        android:textColor="@color/white"
-        android:textOff="@string/txt_desactivarNotif"
-        android:textOn="@string/txt_activarNotif"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/barra"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-    <View
-        android:id="@+id/bar_language2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="72dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bar_language" />
-
-    <TextView
-        android:id="@+id/tv_lang_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="@string/txt_idioma"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch_notifications" />
-
-    <Spinner
-        android:id="@+id/spinner_language"
-        android:layout_width="176dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="28dp"
-        android:entries="@array/languages"
-        android:prompt="@string/select_language"
-        android:spinnerItemStyle="@style/SpinnerItemStyle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.921"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch_notifications" />
-
     <Button
         android:id="@+id/btn_save"
         android:layout_width="wrap_content"
@@ -88,21 +21,58 @@
         android:id="@+id/bar_language"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="76dp"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch_notifications" />
+        app:layout_constraintTop_toBottomOf="@+id/bar_language2" />
+
+    <View
+        android:id="@+id/bar_language2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="88dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barra" />
+
+    <TextView
+        android:id="@+id/tv_lang_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/txt_idioma"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner_language"
+        android:layout_width="176dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="80dp"
+        android:entries="@array/languages"
+        android:prompt="@string/select_language"
+        android:spinnerItemStyle="@style/SpinnerItemStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.859"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
         android:id="@+id/switch_theme"
         android:layout_width="194dp"
         android:layout_height="34dp"
         android:layout_marginStart="184dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="112dp"
         android:padding="8dp"
-        android:text="@string/txt_opcionTheme"
         android:textColor="@color/white"
         android:textOff="@string/txt_claro"
         android:textOn="@string/txt_oscuro"
@@ -118,5 +88,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/barra" />
+
+    <TextView
+        android:id="@+id/tv_change_theme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:text="@string/txt_theme"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

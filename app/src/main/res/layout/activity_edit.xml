@@ -7,13 +7,12 @@
     android:background="@color/fondo"
     tools:context=".login.RegisterActivity">
 
-
     <TextView
         android:id="@+id/txtEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
-        android:text="Edit Hotel"
+        android:text="@string/txt_edit_title"
         android:textColor="#A57C00"
         android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"

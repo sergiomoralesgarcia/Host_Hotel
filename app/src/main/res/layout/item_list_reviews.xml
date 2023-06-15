@@ -12,6 +12,7 @@
         android:id="@+id/tvHotelName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="algo"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -19,12 +20,14 @@
         android:id="@+id/tvReviewText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="algo 3"
         android:textSize="14sp" />
 
     <TextView
         android:id="@+id/tvReviewDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="algo 3"
         android:textSize="12sp"
         android:textColor="@android:color/darker_gray" />
 

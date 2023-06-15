@@ -5,24 +5,23 @@
     <string name="edt_name">Name</string>
     <string name="edt_city">City</string>
     <string name="edt_street">Street</string>
-    <string name="edt_Url">Url Image</string>
-    <string name="edt_info">Information</string>
-    <string name="txt_question">You don´t have an account?</string>
     <string name="btn_register">Register</string>
     <string name="btn_remember">Remember Password</string>
-    <string name="btn_cancel">Cancel</string>
-    <string name="btn_regain">Regain Pass</string>
+    <string name="btn_regain">Recover Password</string>
     <string name="btn_send">Send Email</string>
-    <string name="btn_add">"Add</string>
+    <string name="btn_add">Add</string>
     <string name="btn_editHotel">Edit</string>
-    <string name="btn_loguot">"Log out</string>
-    <string name="btn_save">"Save</string>
-    <string name="btn_options">Configuration</string>
-    <string name="btn_saves">Save</string>
-    <string name="btn_list">Reviews List</string>
+    <string name="btn_loguot">Logout</string>
+    <string name="btn_google">Sign in with Google</string>
+    <string name="btn_signIn">Sign In</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_edit">Edit</string>
+    <string name="btn_options">Settings</string>
+    <string name="btn_saves">Saved</string>
+    <string name="btn_list">Review List</string>
     <string name="btn_info">Information</string>
 
-    <string name="select_language">Select Language </string>
+    <string name="select_language">Select a language</string>
     <string-array name="languages">
         <item>English</item>
         <item>Español</item>
@@ -44,19 +43,71 @@
     </string-array>
 
 
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="btn_google">Sign In with Google</string>
-    <string name="btn_signIn">Sign In</string>
-    <string name="btn_edit">Edit</string>
+    <string name="edt_email" translatable="false">Email</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="edt_info">Information</string>
+    <string name="edt_Url">Image URL</string>
+    <string name="txt_question">Do not have an account?</string>
+    <string name="txt_notificaciones">Notifications</string>
+    <string name="txt_opcionNotifi">Enable notifications</string>
     <string name="txt_opcionTheme">Change theme</string>
     <string name="txt_claro">Light</string>
     <string name="txt_oscuro">Dark</string>
-    <string name="txt_notificaciones">Notifications</string>
-    <string name="txt_opcionNotifi">Enable Notifications</string>
-    <string name="txt_activarNotif">Activate</string>
-    <string name="txt_desactivarNotif">Desactivate</string>
+    <string name="txt_activarNotif">Enable</string>
+    <string name="txt_desactivarNotif">Disable</string>
     <string name="txt_idioma">Language</string>
+    <string name="txt_theme">Theme</string>
     <string name="txt_addHotel">Add Hotel</string>
-    <string name="language_key">language</string>
-    <string name="language_saved_message">Language saved!</string>
+    <string name="language_key">Language</string>
+    <string name="language_saved_message">Language Saved</string>
+    <string name="ttl_about">About Us</string>
+    <string name="ttl_aplication">What is it about?</string>
+    <string name="ttl_dev">Developer</string>
+    <string name="txt_det_hotel">Hotel:</string>
+    <string name="txt_det_city">City:</string>
+    <string name="txt_det_street">Street:</string>
+    <string name="txt_det_info">Additional Information:</string>
+    <string name="txt_edit_title">Edit Hotel</string>
+    <string name="txt_reviews_ttl">Reviews:</string>
+    <string name="txt_img_reg">Image</string>
+    <string name="txt_ape_reg">Last Name</string>
+    <string name="txt_write">Write your review</string>
+    <string name="txt_submit">Submit</string>
+    <string name="ttl_add_hotel">Add Hotel</string>
+    <string name="ttl_review_user">User:</string>
+    <string name="ttl_review_date">Date:</string>
+    <string name="ttl_review_rev">Review:</string>
+    <string name="add_success">Hotel added successfully</string>
+    <string name="add_error">Error adding the hotel</string>
+    <string name="write_full">Please fill in all fields</string>
+    <string name="ttl_confirm_delete">Confirm Deletion</string>
+    <string name="ttl_ask_delete">Are you sure you want to delete this hotel?</string>
+    <string name="ttl_delete">Delete</string>
+    <string name="ttl_delete_success">Hotel deleted successfully</string>
+    <string name="ttl_delete_error">Error deleting the hotel</string>
+    <string name="ttl_dont_fund">Hotel not found</string>
+    <string name="ttl_close_prof">Logout</string>
+    <string name="ttl_close_ask">Are you sure you want to logout?</string>
+    <string name="ttl_close_success">Logged out successfully</string>
+    <string name="ttl_yes">Yes</string>
+    <string name="ttl_no">No</string>
+    <string name="txt_log">Enter email and password</string>
+    <string name="txt_log_success">Authentication successful</string>
+    <string name="txt_log_verify">Verify your email</string>
+    <string name="txt_log_error">Email and/or password error</string>
+    <string name="txt_user_success">User registered successfully</string>
+    <string name="txt_pass_error">Password error</string>
+    <string name="txt_rellenar">Fill in all fields</string>
+    <string name="txt_url_success">Profile image URL saved successfully</string>
+    <string name="txt_account_success">Account created successfully, verification required</string>
+    <string name="txt_user_error">Error setting the username</string>
+    <string name="txt_pass_change">Password change email sent</string>
+    <string name="txt_process_error">Error, process could not be completed</string>
+    <string name="txt_chang_applied">Changes applied</string>
+    <string name="Developer" translatable="false">Sergio Morales García</string>
+    <string name="txt_follow">Follow Us</string>
+    <string name="txt_aboutUs">This application has been developed for the final degree project of the 2nd year of Multiplatform Application Development course, of the C.P.I.F.P. Málaga Tech Park.</string>
+    <string name="txt_aboutAplication">This project is based on a hotel forum where users can add hotels they have stayed at and rate them with stars and a review. The hotels belong to the Andalusian community and can be filtered by the cities within it.</string>
 </resources>
