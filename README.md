@@ -38,3 +38,4 @@ RecyclerView implementado y vistas de los hoteles. Además de mostrar los datos 
 Editar, borrar y añadir hoteles. Añadir reviews de cada hotel mostrando los datos del usuario. Mejora de diseño y implementados el francés y el alemán. Efecto de carga de datos en el recyclerview.
 
 ## Capturas de pantalla
+![Log In](https://github.com/sergiomoralesgarcia/Host_Hotel/blob/master/app/src/main/res/drawable-v24/captura1.jpg)
