@@ -89,13 +89,6 @@
 
         </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/btn_fav"
-            android:layout_width="50dp"
-            android:layout_weight="1"
-            android:background="#00D8BDBD"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_fav_off" />
 
         <ImageButton
             android:id="@+id/btn_edit"
