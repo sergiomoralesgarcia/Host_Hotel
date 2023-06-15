@@ -32,7 +32,7 @@ Página de configuración con cambio de idioma (español e inglés) y de tema de
  --Break en Mayo por final de Erasmus--
 ### Semana 6 (29 mayo - 4 junio)
 Conexión con Firestore
-### Semana 6 (5 junio - 11 junio)
+### Semana 7 (5 junio - 11 junio)
 RecyclerView implementado y vistas de los hoteles. Además de mostrar los datos del usuario nativamente
-### Semana 6 (12 junio - 16 junio)
+### Semana 8 (12 junio - 16 junio)
 Editar, borrar y añadir hoteles. Añadir reviews de cada hotel mostrando los datos del usuario. Mejora de diseño y implementados el francés y el alemán. Efecto de carga de datos en el recyclerview.
