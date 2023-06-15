@@ -24,7 +24,6 @@ class BottomSheetFragment: BottomSheetDialogFragment() {
 
         val btn_config: Button = view.findViewById(R.id.btn_config)
         val btn_fav: Button = view.findViewById(R.id.btn_saves)
-        val btn_list: Button = view.findViewById(R.id.btn_list)
         val btn_info: Button = view.findViewById(R.id.btn_info)
 
         btn_config.setOnClickListener {
@@ -40,14 +39,6 @@ class BottomSheetFragment: BottomSheetDialogFragment() {
             // Cerrar el BottomSheet
             dismiss()
         }
-
-        btn_list.setOnClickListener {
-            val intent = Intent(context, ListReviewsActivity::class.java)
-            startActivity(intent)
-            // Cerrar el BottomSheet
-            dismiss()
-        }
-
         btn_info.setOnClickListener {
             val intent = Intent(context, InformationActivity::class.java)
             startActivity(intent)

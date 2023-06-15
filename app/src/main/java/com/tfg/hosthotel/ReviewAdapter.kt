@@ -1,10 +1,10 @@
-package com.tfg.hosthotel
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.tfg.hosthotel.R
+import com.tfg.hosthotel.Review
 
 class ReviewAdapter(private val reviewList: List<Review>) : RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder>() {
 
