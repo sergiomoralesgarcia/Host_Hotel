@@ -36,3 +36,5 @@ Conexión con Firestore
 RecyclerView implementado y vistas de los hoteles. Además de mostrar los datos del usuario nativamente
 ### Semana 8 (12 junio - 16 junio)
 Editar, borrar y añadir hoteles. Añadir reviews de cada hotel mostrando los datos del usuario. Mejora de diseño y implementados el francés y el alemán. Efecto de carga de datos en el recyclerview.
+
+## Capturas de pantalla
