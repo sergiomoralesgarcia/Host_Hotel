@@ -1,0 +1,117 @@
+<resources>
+    <string name="app_name">HostHotel</string>
+    <string name="edt_pass">Passwort</string>
+    <string name="edt_confirmPass">Passwort bestätigen</string>
+    <string name="edt_name">Name</string>
+    <string name="edt_city">Stadt</string>
+    <string name="edt_street">Straße</string>
+    <string name="btn_register">Registrieren</string>
+    <string name="btn_remember">Passwort merken</string>
+    <string name="btn_regain">Passwort wiederherstellen</string>
+    <string name="btn_send">E-Mail senden</string>
+    <string name="btn_add">Hinzufügen</string>
+    <string name="btn_editHotel">Bearbeiten</string>
+    <string name="btn_loguot">Abmelden</string>
+    <string name="btn_google">Mit Google anmelden</string>
+    <string name="btn_signIn">Anmelden</string>
+    <string name="btn_save">Speichern</string>
+    <string name="btn_edit">Bearbeiten</string>
+    <string name="btn_options">Einstellungen</string>
+    <string name="btn_saves">Gespeichert</string>
+    <string name="btn_list">Bewertungsliste</string>
+    <string name="btn_info">Informationen</string>
+
+    <string name="select_language">Sprache auswählen</string>
+    <string-array name="languages">
+        <item>English</item>
+        <item>Español</item>
+        <item>Français</item>
+        <item>Deutsch</item>
+    </string-array>
+    <string-array name="language_codes">
+        <item>en</item>
+        <item>es</item>
+        <item>fr</item>
+        <item>de</item>
+    </string-array>
+
+    <string-array name="cities_array">
+        <item>Sevilla</item>
+        <item>Málaga</item>
+        <item>Cádiz</item>
+        <item>Granada</item>
+        <item>Córdoba</item>
+        <item>Almería</item>
+        <item>Huelva</item>
+        <item>Jaén</item>
+    </string-array>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="edt_email" translatable="false">E-Mail</string>
+    <string name="btn_cancel">Abbrechen</string>
+    <string name="edt_info">Informationen</string>
+    <string name="edt_Url">Bild-URL</string>
+    <string name="txt_question">Kein Konto?</string>
+    <string name="txt_notificaciones">Benachrichtigungen</string>
+    <string name="txt_opcionNotifi">Benachrichtigungen aktivieren</string>
+    <string name="txt_opcionTheme">Thema ändern</string>
+    <string name="txt_claro">Hell</string>
+    <string name="txt_oscuro">Dunkel</string>
+    <string name="txt_activarNotif">Aktivieren</string>
+    <string name="txt_desactivarNotif">Deaktivieren</string>
+    <string name="txt_idioma">Sprache</string>
+    <string name="txt_theme">Thema</string>
+    <string name="txt_addHotel">Hotel hinzufügen</string>
+    <string name="language_key">Sprache</string>
+    <string name="language_saved_message">Sprache gespeichert</string>
+    <string name="ttl_about">Über uns</string>
+    <string name="ttl_aplication">Worum geht es?</string>
+    <string name="ttl_dev">Entwickler</string>
+    <string name="txt_det_hotel">Hotel:</string>
+    <string name="txt_det_city">Stadt:</string>
+    <string name="txt_det_street">Straße:</string>
+    <string name="txt_det_info">Zusätzliche Informationen:</string>
+    <string name="txt_edit_title">Hotel bearbeiten</string>
+    <string name="txt_reviews_ttl">Bewertungen:</string>
+    <string name="txt_img_reg">Bild</string>
+    <string name="txt_ape_reg">Nachname</string>
+    <string name="txt_write">Schreibe deine Bewertung</string>
+    <string name="txt_submit">Veröffentlichen</string>
+    <string name="ttl_add_hotel">Hotel hinzufügen</string>
+    <string name="ttl_review_user">Benutzer:</string>
+    <string name="ttl_review_date">Datum:</string>
+    <string name="ttl_review_rev">Bewertung:</string>
+    <string name="add_success">Hotel erfolgreich hinzugefügt</string>
+    <string name="add_error">Fehler beim Hinzufügen des Hotels</string>
+    <string name="write_full">Bitte fülle alle Felder aus</string>
+    <string name="ttl_confirm_delete">Löschen bestätigen</string>
+    <string name="ttl_ask_delete">Bist du sicher, dass du dieses Hotel löschen möchtest?</string>
+    <string name="ttl_delete">Löschen</string>
+    <string name="ttl_delete_success">Hotel erfolgreich gelöscht</string>
+    <string name="ttl_delete_error">Fehler beim Löschen des Hotels</string>
+    <string name="ttl_dont_fund">Hotel nicht gefunden</string>
+    <string name="ttl_close_prof">Abmelden</string>
+    <string name="ttl_close_ask">Bist du sicher, dass du dich abmelden möchtest?</string>
+    <string name="ttl_close_success">Sitzung erfolgreich abgemeldet</string>
+    <string name="ttl_yes">Ja</string>
+    <string name="ttl_no">Nein</string>
+    <string name="txt_log">E-Mail und Passwort eingeben</string>
+    <string name="txt_log_success">Erfolgreiche Authentifizierung</string>
+    <string name="txt_log_verify">Bestätige deine E-Mail</string>
+    <string name="txt_log_error">Fehlerhafte E-Mail und/oder Passwort</string>
+    <string name="txt_user_success">Benutzer erfolgreich registriert</string>
+    <string name="txt_pass_error">Fehler bei den Passwörtern</string>
+    <string name="txt_rellenar">Bitte fülle alle Felder aus</string>
+    <string name="txt_url_success">Profilbild-URL erfolgreich gespeichert</string>
+    <string name="txt_account_success">Konto erfolgreich erstellt, Verifizierung erforderlich</string>
+    <string name="txt_user_error">Fehler beim Festlegen des Benutzernamens</string>
+    <string name="txt_pass_change">Passwort-Änderungs-E-Mail gesendet</string>
+    <string name="txt_process_error">Fehler, der Vorgang konnte nicht abgeschlossen werden</string>
+    <string name="txt_chang_applied">Änderungen angewendet</string>
+    <string name="Developer" translatable="false">Sergio Morales García</string>
+    <string name="txt_follow">Folge uns</string>
+    <string name="txt_aboutUs">Diese Anwendung wurde für die Abschlussarbeit des Kurses 2º de Desarrollo de Aplicaciones Multiplataforma am C.P.I.F.P. Málaga Tech Park entwickelt.</string>
+    <string name="txt_aboutAplication">Dieses Projekt basiert auf einem Hotel-Forum, in dem Benutzer Hotels hinzufügen können, in denen sie übernachtet haben, und diese mit Sternen und einer Bewertung bewerten können. Die Hotels gehören zur Gemeinschaft Andalusiens und können nach den Städten gefiltert werden, in denen sie sich befinden.</string>
+</resources>

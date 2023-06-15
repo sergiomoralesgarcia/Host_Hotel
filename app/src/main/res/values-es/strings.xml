@@ -25,10 +25,14 @@
     <string-array name="languages">
         <item>English</item>
         <item>Español</item>
+        <item>Français</item>
+        <item>Deutsch</item>
     </string-array>
     <string-array name="language_codes">
         <item>en</item>
         <item>es</item>
+        <item>fr</item>
+        <item>de</item>
     </string-array>
 
     <string-array name="cities_array">

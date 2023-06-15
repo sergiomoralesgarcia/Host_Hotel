@@ -1,0 +1,118 @@
+<resources>
+    <string name="app_name">HostHotel</string>
+    <string name="edt_pass">Mot de passe</string>
+    <string name="edt_confirmPass">Confirmer le mot de passe</string>
+    <string name="edt_name">Nom</string>
+    <string name="edt_city">Ville</string>
+    <string name="edt_street">Rue</string>
+    <string name="btn_register">Se inscrire</string>
+    <string name="btn_remember">Se souvenir du mot de passe</string>
+    <string name="btn_regain">Récupérer le mot de passe</string>
+    <string name="btn_send">Envoyer un e-mail</string>
+    <string name="btn_add">Ajouter</string>
+    <string name="btn_editHotel">Modifier</string>
+    <string name="btn_loguot">Déconnexion</string>
+    <string name="btn_google">Se connecter avec Google</string>
+    <string name="btn_signIn">Se connecter</string>
+    <string name="btn_save">Enregistrer</string>
+    <string name="btn_edit">Modifier</string>
+    <string name="btn_options">Paramètres</string>
+    <string name="btn_saves">Enregistré</string>
+    <string name="btn_list">Liste des avis</string>
+    <string name="btn_info">Informations</string>
+
+    <string name="select_language">Sélectionnez une langue</string>
+    <string-array name="languages">
+        <item>English</item>
+        <item>Español</item>
+        <item>Français</item>
+        <item>Deutsch</item>>
+    </string-array>
+    <string-array name="language_codes">
+        <item>en</item>
+        <item>es</item>
+        <item>fr</item>
+        <item>de</item>
+    </string-array>
+
+
+    <string-array name="cities_array">
+        <item>Sevilla</item>
+        <item>Málaga</item>
+        <item>Cádiz</item>
+        <item>Granada</item>
+        <item>Córdoba</item>
+        <item>Almería</item>
+        <item>Huelva</item>
+        <item>Jaén</item>
+    </string-array>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Bonjour fragment vide</string>
+    <string name="edt_email" translatable="false">E-mail</string>
+    <string name="btn_cancel">Annuler</string>
+    <string name="edt_info">Informations</string>
+    <string name="edt_Url">URL de le image</string>
+    <string name="txt_question">Vous ne avez pas de compte?</string>
+    <string name="txt_notificaciones">Notifications</string>
+    <string name="txt_opcionNotifi">Activer les notifications</string>
+    <string name="txt_opcionTheme">Changer de thème</string>
+    <string name="txt_claro">Clair</string>
+    <string name="txt_oscuro">Sombre</string>
+    <string name="txt_activarNotif">Activer</string>
+    <string name="txt_desactivarNotif">Désactiver</string>
+    <string name="txt_idioma">Langue</string>
+    <string name="txt_theme">Thème</string>
+    <string name="txt_addHotel">Ajouter un hôtel</string>
+    <string name="language_key">Langue</string>
+    <string name="language_saved_message">Langue enregistrée</string>
+    <string name="ttl_about">À propos de nous</string>
+    <string name="ttl_aplication">De quoi se agit-il ?</string>
+    <string name="ttl_dev">Développeur</string>
+    <string name="txt_det_hotel">Hôtel :</string>
+    <string name="txt_det_city">Ville :</string>
+    <string name="txt_det_street">Rue :</string>
+    <string name="txt_det_info">Informations supplémentaires :</string>
+    <string name="txt_edit_title">Modifier le hôtel</string>
+    <string name="txt_reviews_ttl">Avis :</string>
+    <string name="txt_img_reg">Image</string>
+    <string name="txt_ape_reg">Nom de famille</string>
+    <string name="txt_write">Écrivez votre avis</string>
+    <string name="txt_submit">Soumettre</string>
+    <string name="ttl_add_hotel">Ajouter un hôtel</string>
+    <string name="ttl_review_user">Utilisateur :</string>
+    <string name="ttl_review_date">Date :</string>
+    <string name="ttl_review_rev">Avis :</string>
+    <string name="add_success">Hôtel ajouté avec succès</string>
+    <string name="add_error">Erreur lors de le ajout de le hôtel</string>
+    <string name="write_full">Veuillez remplir tous les champs</string>
+    <string name="ttl_confirm_delete">Confirmer la suppression</string>
+    <string name="ttl_ask_delete">Êtes-vous sûr de vouloir supprimer cet hôtel ?</string>
+    <string name="ttl_delete">Supprimer</string>
+    <string name="ttl_delete_success">Hôtel supprimé avec succès</string>
+    <string name="ttl_delete_error">Erreur lors de la suppression de le hôtel</string>
+    <string name="ttl_dont_fund">Hôtel introuvable</string>
+    <string name="ttl_close_prof">Déconnexion</string>
+    <string name="ttl_close_ask">Êtes-vous sûr de vouloir vous déconnecter ?</string>
+    <string name="ttl_close_success">Déconnexion réussie</string>
+    <string name="ttl_yes">Oui</string>
+    <string name="ttl_no">Non</string>
+    <string name="txt_log">Entrez votre e-mail et votre mot de passe</string>
+    <string name="txt_log_success">Authentification réussie</string>
+    <string name="txt_log_verify">Vérifiez votre e-mail</string>
+    <string name="txt_log_error">Erreur de e-mail et/ou de mot de passe</string>
+    <string name="txt_user_success">Utilisateur enregistré avec succès</string>
+    <string name="txt_pass_error">Erreur de mot de passe</string>
+    <string name="txt_rellenar">Veuillez remplir tous les champs</string>
+    <string name="txt_url_success">URL de le image de profil enregistrée avec succès</string>
+    <string name="txt_account_success">Compte créé avec succès, vérification requise</string>
+    <string name="txt_user_error">Erreur lors de la configuration du nom de utilisateur</string>
+    <string name="txt_pass_change">E-mail de modification du mot de passe envoyé</string>
+    <string name="txt_process_error">Erreur, impossible de terminer le processus</string>
+    <string name="txt_chang_applied">Modifications appliquées</string>
+    <string name="Developer" translatable="false">Sergio Morales García</string>
+    <string name="txt_follow">Suivez-nous</string>
+    <string name="txt_aboutUs">Cette application a été développée pour le projet de diplôme final de la 2e année du cours de développement de applications multiplateformes du C.P.I.F.P. Málaga Tech Park.</string>
+    <string name="txt_aboutAplication">Ce projet est basé sur un forum de hôtels où les utilisateurs peuvent ajouter des hôtels dans lesquels ils ont séjourné et les noter avec des étoiles et un avis. Les hôtels appartiennent à la communauté andalouse et peuvent être filtrés par les villes qui la composent.</string>
+</resources>

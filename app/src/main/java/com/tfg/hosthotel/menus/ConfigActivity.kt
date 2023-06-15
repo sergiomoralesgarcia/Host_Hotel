@@ -31,6 +31,8 @@ class ConfigActivity : AppCompatActivity() {
         // Establece la selección del Spinner según el idioma guardado
         val languageIndex = when (selectedLanguage) {
             "es" -> 1 // Español
+            "fr" -> 2 // Francés
+            "de" -> 3 // Alemán
             else -> 0 // Inglés (por defecto)
         }
         languageSpinner.setSelection(languageIndex)
@@ -41,6 +43,8 @@ class ConfigActivity : AppCompatActivity() {
                     selectedLanguage = when (position) {
                         0 -> "en" // inglés
                         1 -> "es" // español
+                        2 -> "fr" // francés
+                        3 -> "de" // alemán
                         else -> "en" // idioma por defecto
                     }
                 }
@@ -57,7 +61,7 @@ class ConfigActivity : AppCompatActivity() {
             saveTheme(theme)
             saveLanguage(selectedLanguage)
 
-            Toast.makeText(this,R.string.txt_chang_applied, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.txt_chang_applied, Toast.LENGTH_SHORT).show()
 
             val intent = Intent(this, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -117,7 +121,7 @@ class ConfigActivity : AppCompatActivity() {
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
         val config = Configuration()
-        config.locale = locale
+        config.setLocale(locale)
         baseContext.resources.updateConfiguration(config, baseContext.resources.displayMetrics)
     }
 }
