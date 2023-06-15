@@ -64,22 +64,26 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
     implementation 'com.google.firebase:firebase-database-ktx:20.0.0'
-
     implementation 'com.google.firebase:firebase-firestore-ktx'
 
+    // Viewpager
     implementation 'androidx.viewpager:viewpager:1.0.0'
 
+    // Firestore
     implementation 'com.google.firebase:firebase-firestore:23.0.3'
 
+    // Picasso para las imagenes
     implementation 'com.squareup.picasso:picasso:2.71828'
 
+    // Shimmer para el efecto de carga
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
+    // Glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
+    // CircleImageView para las imagenes redondas
     implementation 'de.hdodenhof:circleimageview:3.1.0'
-
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'

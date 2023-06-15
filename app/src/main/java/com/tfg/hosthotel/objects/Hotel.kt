@@ -1,4 +1,4 @@
-package com.tfg.hosthotel
+package com.tfg.hosthotel.objects
 
 import com.google.firebase.database.Exclude
 import com.google.firebase.database.IgnoreExtraProperties

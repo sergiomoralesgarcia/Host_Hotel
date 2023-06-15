@@ -23,18 +23,10 @@ class BottomSheetFragment: BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val btn_config: Button = view.findViewById(R.id.btn_config)
-        val btn_fav: Button = view.findViewById(R.id.btn_saves)
         val btn_info: Button = view.findViewById(R.id.btn_info)
 
         btn_config.setOnClickListener {
             val intent = Intent(context, ConfigActivity::class.java)
-            startActivity(intent)
-            // Cerrar el BottomSheet
-            dismiss()
-        }
-
-        btn_fav.setOnClickListener {
-            val intent = Intent(context, SavesActivity::class.java)
             startActivity(intent)
             // Cerrar el BottomSheet
             dismiss()

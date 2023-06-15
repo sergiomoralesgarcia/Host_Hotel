@@ -1,7 +1,6 @@
 package com.tfg.hosthotel
 
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -9,6 +8,7 @@ import android.widget.EditText
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
+import com.tfg.hosthotel.objects.Hotel
 import java.io.Serializable
 
 class EditActivity : AppCompatActivity() {
@@ -18,6 +18,7 @@ class EditActivity : AppCompatActivity() {
     private var onHotelUpdatedListener: OnHotelUpdatedListener? = null
     private lateinit var spinnerCity: Spinner
 
+    // Interfaz para comunicarse con la actividad que inició EditActivity
     interface OnHotelUpdatedListener : Serializable {
         fun onHotelUpdated()
     }
@@ -28,6 +29,7 @@ class EditActivity : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
 
+        // Obtener referencias a las vistas
         val editTextName = findViewById<EditText>(R.id.edtNombre)
         val editTextStreet = findViewById<EditText>(R.id.edtCalle)
         val editTextInfo = findViewById<EditText>(R.id.edtInfo)
@@ -35,6 +37,7 @@ class EditActivity : AppCompatActivity() {
 
         val buttonEdit = findViewById<Button>(R.id.btnEditar)
 
+        // Configurar el Spinner de la ciudad
         spinnerCity = findViewById(R.id.edtCiudad)
         val cities = resources.getStringArray(R.array.cities_array)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, cities)
@@ -72,6 +75,7 @@ class EditActivity : AppCompatActivity() {
     }
 
     private fun getHotelData() {
+        // Obtener los datos del hotel desde Firestore Database
         db.collection("hotels")
             .whereEqualTo("name_hotel", hotelName)
             .get()
@@ -91,13 +95,14 @@ class EditActivity : AppCompatActivity() {
                 }
             }
             .addOnFailureListener { exception ->
-                // Handle failure
+                // Manejar el fallo
             }
     }
 
     private fun updateHotelData(name: String, city: String, street: String, info: String, imageUrl: String) {
         val hotelsCollection = db.collection("hotels")
 
+        // Actualizar los datos del hotel en Firestore Database
         hotelsCollection
             .whereEqualTo("name_hotel", hotelName)
             .get()
@@ -118,12 +123,12 @@ class EditActivity : AppCompatActivity() {
                             onHotelUpdatedListener?.onHotelUpdated()
                         }
                         .addOnFailureListener { exception ->
-                            // Handle failure
+                            // Manejar el fallo
                         }
                 }
             }
             .addOnFailureListener { exception ->
-                // Handle failure
+                // Manejar el fallo
             }
     }
 }

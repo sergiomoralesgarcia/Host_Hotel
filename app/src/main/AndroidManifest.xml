@@ -37,13 +37,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".menus.SavesActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".menus.ConfigActivity"
             android:exported="false">
             <meta-data

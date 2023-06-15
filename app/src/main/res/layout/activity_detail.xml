@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo"
     tools:context=".DetailActivity"
     tools:layout_editor_absoluteX="2dp"
     tools:layout_editor_absoluteY="-14dp">
@@ -49,7 +48,6 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="320dp"
-        android:background="@color/fondo"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.firestore.FirebaseFirestore
-import com.tfg.hosthotel.Hotel
+import com.tfg.hosthotel.objects.Hotel
 import com.tfg.hosthotel.R
 
 
@@ -41,16 +41,11 @@ class AddFragment : Fragment() {
         // Inicializa la instancia de FirebaseFirestore
         db = FirebaseFirestore.getInstance()
 
-        // Obtener el array de ciudades desde los recursos
         val cities = resources.getStringArray(R.array.cities_array)
 
-        // Crear el ArrayAdapter utilizando el array de ciudades y un layout predefinido para los items del Spinner
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, cities)
-
-        // Especificar el layout que se utilizará cuando se despliegue la lista de opciones
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
-        // Establecer el ArrayAdapter en el Spinner
         spinnerCiudad.adapter = adapter
 
         btnAddHotel.setOnClickListener {
@@ -63,14 +58,12 @@ class AddFragment : Fragment() {
             if (nombre.isNotEmpty() && ciudad.isNotEmpty() && street.isNotEmpty() && url.isNotEmpty() && info.isNotEmpty()) {
                 val hotel = Hotel(nombre, ciudad, street, url, info)
 
-                // Guarda el objeto "hotel" en tu base de datos
+                // Guarda el objeto hotel en la base de datos
                 db.collection("hotels")
                     .add(hotel)
                     .addOnSuccessListener { documentReference ->
                         Toast.makeText(requireContext(), getString(R.string.add_success), Toast.LENGTH_SHORT).show()
-                        // Puedes realizar alguna acción adicional después de guardar el hotel, si es necesario.
 
-                        // Aquí puedes agregar el código para limpiar los campos de entrada de texto si lo deseas.
                         edtNombre.text = null
                         edtStreet.text = null
                         edtUrl.text = null
@@ -84,7 +77,6 @@ class AddFragment : Fragment() {
                     }
                     .addOnFailureListener { e ->
                         Toast.makeText(requireContext(),  getString(R.string.add_error), Toast.LENGTH_SHORT).show()
-                        // Puedes realizar alguna acción adicional en caso de error.
                     }
             } else {
                 Toast.makeText(requireContext(), getString(R.string.write_full), Toast.LENGTH_SHORT).show()

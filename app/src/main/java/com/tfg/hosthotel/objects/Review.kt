@@ -1,4 +1,4 @@
-package com.tfg.hosthotel
+package com.tfg.hosthotel.objects
 
 data class Review(
     var id: String? = null,

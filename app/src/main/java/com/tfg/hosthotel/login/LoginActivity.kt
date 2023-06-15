@@ -170,9 +170,6 @@ class LoginActivity : AppCompatActivity() {
             }
     }
 
-
-
-
     // Deshabilita el botón "back"
     override fun onBackPressed() {
         return

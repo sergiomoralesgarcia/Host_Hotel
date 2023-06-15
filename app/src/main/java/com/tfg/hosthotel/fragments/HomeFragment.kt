@@ -15,8 +15,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.tfg.hosthotel.DetailActivity
 import com.tfg.hosthotel.EditActivity
-import com.tfg.hosthotel.Hotel
+import com.tfg.hosthotel.objects.Hotel
 import com.tfg.hosthotel.R
+import com.tfg.hosthotel.adapters.MyAdapter
 
 class HomeFragment : Fragment(), MyAdapter.OnItemClickListener, MyAdapter.OnItemEditClickListener, MyAdapter.OnItemLongClickListener {
 
@@ -34,13 +35,16 @@ class HomeFragment : Fragment(), MyAdapter.OnItemClickListener, MyAdapter.OnItem
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
+        // Inicializar RecyclerView y configurar su diseño
         hotelRecyclerView = view.findViewById(R.id.hotelList)
         hotelRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         hotelRecyclerView.setHasFixedSize(true)
 
+        // Inicializar listas de hoteles
         hotelArrayList = arrayListOf()
         filteredHotelArrayList = arrayListOf()
 
+        // Obtener referencias a los botones de la ciudad
         val btnCadiz = view.findViewById<Button>(R.id.btnCadiz)
         val btnCordoba = view.findViewById<Button>(R.id.btnCordoba)
         val btnGranada = view.findViewById<Button>(R.id.btnGranada)
@@ -50,8 +54,10 @@ class HomeFragment : Fragment(), MyAdapter.OnItemClickListener, MyAdapter.OnItem
         val btnAlmeria = view.findViewById<Button>(R.id.btnAlmeria)
         val btnHuelva = view.findViewById<Button>(R.id.btnHuelva)
 
+        // Crear lista de botones
         buttons = listOf(btnCadiz, btnCordoba, btnGranada, btnMalaga, btnSevilla, btnJaen, btnAlmeria, btnHuelva)
 
+        // Configurar onClickListeners para los botones de la ciudad
         btnCadiz.setOnClickListener { toggleCitySelection("Cádiz", btnCadiz) }
         btnCordoba.setOnClickListener { toggleCitySelection("Córdoba", btnCordoba) }
         btnGranada.setOnClickListener { toggleCitySelection("Granada", btnGranada) }
@@ -61,9 +67,7 @@ class HomeFragment : Fragment(), MyAdapter.OnItemClickListener, MyAdapter.OnItem
         btnAlmeria.setOnClickListener { toggleCitySelection("Almería", btnAlmeria) }
         btnHuelva.setOnClickListener { toggleCitySelection("Huelva", btnHuelva) }
 
-        // Agrega más botones y acciones para las demás provincias de Andalucía
-
-        // Valores de la animación de carga
+        // Obtener referencias a los elementos de animación de carga
         llContenedor = view.findViewById(R.id.llContenedor)
         llCargando = view.findViewById(R.id.llCargando)
 
@@ -73,41 +77,44 @@ class HomeFragment : Fragment(), MyAdapter.OnItemClickListener, MyAdapter.OnItem
     }
 
     private fun getHotelData() {
+        // Inicializar instancia de Firebase Firestore
         db = FirebaseFirestore.getInstance()
         val hotelsCollection = db.collection("hotels")
 
+        // Obtener documentos de la colección "hotels"
         hotelsCollection.get().addOnSuccessListener { snapshot ->
             for (document in snapshot.documents) {
                 val hotel = document.toObject(Hotel::class.java)
                 hotelArrayList.add(hotel!!)
             }
 
+            // Copiar todos los hoteles al ArrayList filtrado
             filteredHotelArrayList.addAll(hotelArrayList)
 
+            // Crear y configurar adaptador para el RecyclerView
             val adapter = MyAdapter(filteredHotelArrayList, this, this)
-
             adapter.setOnItemLongClickListener(this)
-
             hotelRecyclerView.adapter = adapter
 
-            // Una vez que hayas procesado los datos, llama a la función showData()
             showData()
         }.addOnFailureListener { exception ->
-            // Handle failure
         }
     }
 
     private fun showData() {
+        // Ocultar elementos de carga y mostrar contenido
         llCargando.isVisible = false
         llContenedor.isVisible = true
     }
 
     private fun toggleCitySelection(city: String, button: Button) {
         if (selectedCity == city) {
+            // Si ya se seleccionó la misma ciudad, deseleccionarla
             selectedCity = null
             updateButtonStates()
             updateHotelList()
         } else {
+            // Si se selecciona una ciudad diferente, actualizar la selección y filtrar los hoteles
             selectedCity = city
             updateButtonStates()
             filterHotelsByCity(city)
@@ -115,6 +122,7 @@ class HomeFragment : Fragment(), MyAdapter.OnItemClickListener, MyAdapter.OnItem
     }
 
     private fun updateButtonStates() {
+        // Actualizar el estado de los botones de la ciudad según la selección
         for (button in buttons) {
             if (button.text == selectedCity) {
                 button.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.boton))
@@ -125,30 +133,36 @@ class HomeFragment : Fragment(), MyAdapter.OnItemClickListener, MyAdapter.OnItem
     }
 
     private fun filterHotelsByCity(city: String) {
+        // Filtrar los hoteles por la ciudad seleccionada
         filteredHotelArrayList.clear()
         filteredHotelArrayList.addAll(hotelArrayList.filter { hotel -> hotel.localtion_hotel == city })
         hotelRecyclerView.adapter?.notifyDataSetChanged()
     }
 
     private fun updateHotelList() {
+        // Actualizar la lista de hoteles sin filtrar
         filteredHotelArrayList.clear()
         filteredHotelArrayList.addAll(hotelArrayList)
         hotelRecyclerView.adapter?.notifyDataSetChanged()
     }
 
     override fun onItemClick(hotel: Hotel) {
+        // Acción al hacer clic en un hotel (abrir detalle del hotel)
         openHotelDetail(hotel)
     }
 
     override fun onItemEditClick(hotel: Hotel) {
+        // Acción al hacer clic en el botón de edición de un hotel (abrir actividad de edición)
         openEditActivity(hotel)
     }
 
     override fun onItemLongClick(hotel: Hotel) {
+        // Acción al hacer clic largo en un hotel (eliminar el hotel)
         deleteHotelFromFirestore(hotel)
     }
 
     private fun openHotelDetail(hotel: Hotel) {
+        // Abrir actividad de detalle del hotel
         val intent = Intent(requireContext(), DetailActivity::class.java)
         intent.putExtra("hotelImage", hotel.url_img)
         intent.putExtra("hotelName", hotel.name_hotel)
@@ -159,17 +173,19 @@ class HomeFragment : Fragment(), MyAdapter.OnItemClickListener, MyAdapter.OnItem
     }
 
     private fun openEditActivity(hotel: Hotel) {
+        // Abrir actividad de edición del hotel
         val intent = Intent(requireContext(), EditActivity::class.java)
         intent.putExtra("hotelName", hotel.name_hotel)
         startActivity(intent)
     }
 
     private fun deleteHotelFromFirestore(hotel: Hotel) {
+        // Mostrar diálogo de confirmación para eliminar el hotel
         val alertDialogBuilder = AlertDialog.Builder(requireContext())
         alertDialogBuilder.setTitle(getString(R.string.ttl_confirm_delete))
         alertDialogBuilder.setMessage(R.string.ttl_ask_delete)
         alertDialogBuilder.setPositiveButton(R.string.ttl_delete) { dialog, _ ->
-            // Eliminar el hotel
+            // Eliminar el hotel de Firebase Firestore
             val db = FirebaseFirestore.getInstance()
             val hotelsCollection = db.collection("hotels")
 
@@ -182,7 +198,7 @@ class HomeFragment : Fragment(), MyAdapter.OnItemClickListener, MyAdapter.OnItem
                         document.reference.delete()
                             .addOnSuccessListener {
                                 Toast.makeText(requireContext(), R.string.ttl_delete_success, Toast.LENGTH_SHORT).show()
-                                // Actualizar el RecyclerView
+                                // Actualizar el RecyclerView después de eliminar el hotel
                                 hotelArrayList.remove(hotel)
                                 filteredHotelArrayList.remove(hotel)
                                 hotelRecyclerView.adapter?.notifyDataSetChanged()

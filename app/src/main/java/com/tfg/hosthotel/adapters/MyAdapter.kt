@@ -1,3 +1,5 @@
+package com.tfg.hosthotel.adapters
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -6,8 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
-import com.tfg.hosthotel.Hotel
 import com.tfg.hosthotel.R
+import com.tfg.hosthotel.objects.Hotel
 
 class MyAdapter(
     private val hotelList: ArrayList<Hotel>,
