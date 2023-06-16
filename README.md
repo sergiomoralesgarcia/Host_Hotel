@@ -41,17 +41,19 @@ Añadir reviews de cada hotel mostrando los datos del usuario. Mejora de diseño
 [Ver capturas](https://github.com/sergiomoralesgarcia/Host_Hotel/tree/master/app/src/main/res/drawable-v24)
 
 ## Videos
-[Video checkpoint](https://www.youtube.com/watch?v=Vv869Pm4sgc&ab_channel=AlbertoParra)
-
+[Video checkpoint](https://www.youtube.com/watch?v=Vv869Pm4sgc&ab_channel=AlbertoParra)  
 [Video final de presentación](https://www.youtube.com/watch?v=tNpnEnsDquA)
+
+## APK
+[Descargar la apk](https://github.com/sergiomoralesgarcia/Host_Hotel/blob/master/debug.zip)
 
 ## Modelo de la base de datos
 (https://github.com/sergiomoralesgarcia/Host_Hotel/assets/91873656/e54a33a8-e180-48e4-87e9-11a2877d2cbb)
 
 ## Herramientas de ayuda utilizadas
-[Canales de YouTube](https://www.youtube.com/@mouredev)
-[Documentación oficial](https://kotlinlang.org/docs/home.html)
-[Material design](https://developer.android.com/guide/topics/ui/look-and-feel?hl=es-419)
-[Chat gpt](https://openai.com/chatgpt)
-[Firebase](https://firebase.google.com/?hl=es-419)
+[Canales de YouTube](https://www.youtube.com/@mouredev)   
+[Documentación oficial](https://kotlinlang.org/docs/home.html)  
+[Material design](https://developer.android.com/guide/topics/ui/look-and-feel?hl=es-419)  
+[Chat gpt](https://openai.com/chatgpt)  
+[Firebase](https://firebase.google.com/?hl=es-419)  
 
