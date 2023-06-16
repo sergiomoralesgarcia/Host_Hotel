@@ -45,5 +45,13 @@ Añadir reviews de cada hotel mostrando los datos del usuario. Mejora de diseño
 
 [Video final de presentación](https://www.youtube.com/watch?v=tNpnEnsDquA)
 
-![Modelo de la base de datos](https://github.com/sergiomoralesgarcia/Host_Hotel/assets/91873656/e54a33a8-e180-48e4-87e9-11a2877d2cbb)
+## Modelo de la base de datos
+(https://github.com/sergiomoralesgarcia/Host_Hotel/assets/91873656/e54a33a8-e180-48e4-87e9-11a2877d2cbb)
+
+## Herramientas de ayuda utilizadas
+[Canales de YouTube](https://www.youtube.com/@mouredev)
+[Documentación oficial](https://kotlinlang.org/docs/home.html)
+[Material design](https://developer.android.com/guide/topics/ui/look-and-feel?hl=es-419)
+[Chat gpt](https://openai.com/chatgpt)
+[Firebase](https://firebase.google.com/?hl=es-419)
 
