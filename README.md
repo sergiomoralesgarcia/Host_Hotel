@@ -37,6 +37,6 @@ RecyclerView implementado y vistas de los hoteles. Además de mostrar los datos 
 ### Semana 8 (12 junio - 16 junio)
 Editar, borrar y añadir hoteles. Añadir reviews de cada hotel mostrando los datos del usuario. Mejora de diseño y implementados el francés y el alemán. Efecto de carga de datos en el recyclerview.
 
-## Capturas de pantalla
+### Capturas de pantalla
 [Ver capturas](https://github.com/sergiomoralesgarcia/Host_Hotel/tree/master/app/src/main/res/drawable-v24)
 
