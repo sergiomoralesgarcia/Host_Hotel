@@ -40,3 +40,6 @@ Añadir reviews de cada hotel mostrando los datos del usuario. Mejora de diseño
 ## Capturas de pantalla
 [Ver capturas](https://github.com/sergiomoralesgarcia/Host_Hotel/tree/master/app/src/main/res/drawable-v24)
 
+## Videos
+[Video checkpoint](https://www.youtube.com/watch?v=Vv869Pm4sgc&ab_channel=AlbertoParra)
+[Video final de presentación](https://www.youtube.com/watch?v=tNpnEnsDquA)
